@@ -2,4 +2,4 @@
 title: "About"
 ---
 
-This is the project website for ISSS608-VAA
+This is the project website for ISSS608-VAA Group 7.

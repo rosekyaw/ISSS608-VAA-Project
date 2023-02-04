@@ -2,9 +2,12 @@ project:
   type: website
 
 website:
-  title: "ISSS608-VAA-Project"
+  title: "ISSS608-VAA-Project Group 7"
   navbar:
     left:
+      - href: "Project-Proposal/VAA-Project-Proposal_Group7.html"
+        text: Proposal
+    right:
       - href: index.qmd
         text: Home
       - about.qmd

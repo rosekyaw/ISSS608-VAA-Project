@@ -1,0 +1,24 @@
+---
+title: "Project Proposal"
+author: "Tan ZeXeong, Tan Zhi Hao, Yun Shew Yee Kyaw"
+date: "4 February 2023"
+date-modified: "`r Sys.Date()`"
+format: html
+execute: 
+  echo: true
+  eval: true
+  warning: false
+editor: visual
+---
+
+# Introduction
+
+This project is to reveal and understand the spread and spatial patterns of functional and non-functional water in Nigeria. This is to reduce the trouble/difficulty of users (politicians, academics, local planners and local community) in visualising waterpoint patterns in Nigeria. This will make the data more accessible and easier to interpret.
+
+The dataset used is from https://data.waterpointdata.org/dataset/Water-Point-Data-Exchange-Plus-WPdx-/eqje-vguj/data
+
+# Related Relevant Work
+
+# Approach
+
+# Prototype Storyboard
