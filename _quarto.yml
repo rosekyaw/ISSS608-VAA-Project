@@ -4,16 +4,11 @@ project:
 website:
   title: "ISSS608-VAA-Project Group 7"
   navbar:
-<<<<<<< HEAD
     left: 
       - text: User Guide
-        href: user_guide.qmd
-  
-=======
-    left:
-      - href: "Project-Proposal/VAA-Project-Proposal_Group7.html"
+        href: "user_guide.qmd"
+      - href: "Project-Proposal/VAA-Project-Proposal_Group7.qmd"
         text: Proposal
->>>>>>> 706db1e98b7a9ffda7778a1853bdf25132644646
     right:
       - href: index.qmd
         text: Home
@@ -21,7 +16,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: yeti
     css: styles.css
     toc: true
 

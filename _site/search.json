@@ -11,16 +11,6 @@
     "href": "index.html",
     "title": "ISSS608-VAA-Project",
     "section": "",
-<<<<<<< HEAD
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "user_guide.html",
-    "href": "user_guide.html",
-    "title": "User Guide",
-    "section": "",
-    "text": "User Guide"
-=======
     "text": "Welcome to ISSS608 Visual Analytics and Applications. In this website, you will find the project materials for this course."
   },
   {
@@ -29,6 +19,12 @@
     "title": "Project Proposal",
     "section": "",
     "text": "Introduction\nThis project is to reveal and understand the spread and spatial patterns of functional and non-functional water in Nigeria. This is to reduce the trouble/difficulty of users (politicians, academics, local planners and local community) in visualising waterpoint patterns in Nigeria. This will make the data more accessible and easier to interpret.\nThe dataset used is from https://data.waterpointdata.org/dataset/Water-Point-Data-Exchange-Plus-WPdx-/eqje-vguj/data\n\n\nRelated Relevant Work\n\n\nApproach\n\n\nPrototype Storyboard"
->>>>>>> 706db1e98b7a9ffda7778a1853bdf25132644646
+  },
+  {
+    "objectID": "user_guide.html",
+    "href": "user_guide.html",
+    "title": "User Guide",
+    "section": "",
+    "text": "User Guide"
   }
 ]
