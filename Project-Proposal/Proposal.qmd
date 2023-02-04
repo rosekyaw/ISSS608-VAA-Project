@@ -3,12 +3,18 @@ title: "Project Proposal"
 author: "Tan ZeXeong, Tan Zhi Hao, Yun Shew Yee Kyaw"
 date: "4 February 2023"
 date-modified: "`r Sys.Date()`"
-format: html
 execute: 
   echo: true
   eval: true
   warning: false
 editor: visual
+code-copy: true
+format:
+  html:
+    code-overflow: wrap
+    code-fold: true
+    code-summary: "Show the code"
+    css: styles.css
 ---
 
 # Introduction
