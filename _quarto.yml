@@ -4,7 +4,11 @@ project:
 website:
   title: "ISSS608-VAA-Project"
   navbar:
-    left:
+    left: 
+      - text: User Guide
+        href: user_guide.qmd
+  
+    right:
       - href: index.qmd
         text: Home
       - about.qmd
