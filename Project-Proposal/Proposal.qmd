@@ -17,14 +17,38 @@ format:
     css: styles.css
 ---
 
-# Introduction
+# 1. Motivation
 
-This project is to reveal and understand the spread and spatial patterns of functional and non-functional water in Nigeria. This is to reduce the trouble/difficulty of users (politicians, academics, local planners and local community) in visualising waterpoint patterns in Nigeria. This will make the data more accessible and easier to interpret.
+According to a research paper \[1\] which utilises information from the 2015 Nigeria National Water and Sanitation Survey, more than 38 percent of all improved water points in Nigeria are non-functional. Hence, it would be in the interest of the Nigerian government as well as non-governmental organizations and researchers to discover waterpoints patterns in Nigeria and potentially figure out what is causing the problem and how to solve it.
 
-The dataset used is from https://data.waterpointdata.org/dataset/Water-Point-Data-Exchange-Plus-WPdx-/eqje-vguj/data
+The scope of this project is to reveal and understand the spread and geospatial patterns of functional and non-functional waterpoints in Nigeria. This will help reduce the difficulty of users such as the government, local community planners and academic researchers in visualising waterpoint patterns in Nigeria. The aim is to make the data more accessible and easier to interpret by having interactive charts showing both high level patterns and low level details such as water access by district.
 
-# Related Relevant Work
+# 2. Related Relevant Work
 
-# Approach
+# 3. Dataset
 
-# Prototype Storyboard
+The dataset used is extracted from https://data.waterpointdata.org/dataset/Water-Point-Data-Exchange-Plus-WPdx-/eqje-vguj/data
+
+# 4. Approach + Prototype
+
+Using various R packages such as ggplot2, ggplot2 extensions and tidyverse packages., the team will extract, analyse, and visualize geospatial patterns of functional and non-functional waterpoints and build an interactive R Shiny application with visual analytics techniques.
+
+It will be split into 3 sections/tabs as shown below:
+
+## a) Overview
+
+The first tab shows an overview revealing high level patterns.
+
+## b) Visual Analysis
+
+*Figma Image*
+
+The second tab applies visual analytics techniques to the dataset. We make use of analytics approach for knowledge discovery, statistical testing as well as visualising uncertainty. Graphs include correlation matrices, errors bars, confidence strips, ridge plot and funnel plot.
+
+This will help users identify relationships or correlations between difference features such as technology used or pressure score with number of non-functional water points through correlation matrices. It may also allow users to compare statistics across different districts through oneway ANOVA tests visualizations.
+
+## c) Geographical Segmentation
+
+# References
+
+\[1\] *\"Andres, Luis; Chellaraj, Gnanaraj; Das Gupta, Basab; Grabinsky, Jonathan; Joseph, George. 2018. Why Are So Many Water Points in Nigeria Non-Functional? : An Empirical Analysis of Contributing Factors. Policy Research Working Paper;No. 8388. World Bank, Washington, DC. © World Bank. https://openknowledge.worldbank.org/handle/10986/29568 License: CC BY 3.0 IGO.\"*

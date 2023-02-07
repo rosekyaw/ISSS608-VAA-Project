@@ -115,10 +115,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#related-relevant-work" id="toc-related-relevant-work" class="nav-link" data-scroll-target="#related-relevant-work">Related Relevant Work</a></li>
-  <li><a href="#approach" id="toc-approach" class="nav-link" data-scroll-target="#approach">Approach</a></li>
-  <li><a href="#prototype-storyboard" id="toc-prototype-storyboard" class="nav-link" data-scroll-target="#prototype-storyboard">Prototype Storyboard</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation">1. Motivation</a></li>
+  <li><a href="#related-relevant-work" id="toc-related-relevant-work" class="nav-link" data-scroll-target="#related-relevant-work">2. Related Relevant Work</a></li>
+  <li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset">3. Dataset</a></li>
+  <li><a href="#approach-prototype" id="toc-approach-prototype" class="nav-link" data-scroll-target="#approach-prototype">4. Approach + Prototype</a>
+  <ul class="collapse">
+  <li><a href="#a-overview" id="toc-a-overview" class="nav-link" data-scroll-target="#a-overview">a) Overview</a></li>
+  <li><a href="#b-visual-analysis" id="toc-b-visual-analysis" class="nav-link" data-scroll-target="#b-visual-analysis">b) Visual Analysis</a></li>
+  <li><a href="#c-geographical-segmentation" id="toc-c-geographical-segmentation" class="nav-link" data-scroll-target="#c-geographical-segmentation">c) Geographical Segmentation</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -151,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">February 4, 2023</p>
+      <p class="date-modified">February 7, 2023</p>
     </div>
   </div>
     
@@ -160,19 +166,39 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>This project is to reveal and understand the spread and spatial patterns of functional and non-functional water in Nigeria. This is to reduce the trouble/difficulty of users (politicians, academics, local planners and local community) in visualising waterpoint patterns in Nigeria. This will make the data more accessible and easier to interpret.</p>
-<p>The dataset used is from https://data.waterpointdata.org/dataset/Water-Point-Data-Exchange-Plus-WPdx-/eqje-vguj/data</p>
+<section id="motivation" class="level1">
+<h1>1. Motivation</h1>
+<p>According to a research paper [1] which utilises information from the 2015 Nigeria National Water and Sanitation Survey, more than 38 percent of all improved water points in Nigeria are non-functional. Hence, it would be in the interest of the Nigerian government as well as non-governmental organizations and researchers to discover waterpoints patterns in Nigeria and potentially figure out what is causing the problem and how to solve it.</p>
+<p>The scope of this project is to reveal and understand the spread and geospatial patterns of functional and non-functional waterpoints in Nigeria. This will help reduce the difficulty of users such as the government, local community planners and academic researchers in visualising waterpoint patterns in Nigeria. The aim is to make the data more accessible and easier to interpret by having interactive charts showing both high level patterns and low level details such as water access by district.</p>
 </section>
 <section id="related-relevant-work" class="level1">
-<h1>Related Relevant Work</h1>
+<h1>2. Related Relevant Work</h1>
 </section>
-<section id="approach" class="level1">
-<h1>Approach</h1>
+<section id="dataset" class="level1">
+<h1>3. Dataset</h1>
+<p>The dataset used is extracted from https://data.waterpointdata.org/dataset/Water-Point-Data-Exchange-Plus-WPdx-/eqje-vguj/data</p>
 </section>
-<section id="prototype-storyboard" class="level1">
-<h1>Prototype Storyboard</h1>
+<section id="approach-prototype" class="level1">
+<h1>4. Approach + Prototype</h1>
+<p>Using various R packages such as ggplot2, ggplot2 extensions and tidyverse packages., the team will extract, analyse, and visualize geospatial patterns of functional and non-functional waterpoints and build an interactive R Shiny application with visual analytics techniques.</p>
+<p>It will be split into 3 sections/tabs as shown below:</p>
+<section id="a-overview" class="level2">
+<h2 class="anchored" data-anchor-id="a-overview">a) Overview</h2>
+<p>The first tab shows an overview revealing high level patterns.</p>
+</section>
+<section id="b-visual-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="b-visual-analysis">b) Visual Analysis</h2>
+<p><em>Figma Image</em></p>
+<p>The second tab applies visual analytics techniques to the dataset. We make use of analytics approach for knowledge discovery, statistical testing as well as visualising uncertainty. Graphs include correlation matrices, errors bars, confidence strips, ridge plot and funnel plot.</p>
+<p>This will help users identify relationships or correlations between difference features such as technology used or pressure score with number of non-functional water points through correlation matrices. It may also allow users to compare statistics across different districts through oneway ANOVA tests visualizations.</p>
+</section>
+<section id="c-geographical-segmentation" class="level2">
+<h2 class="anchored" data-anchor-id="c-geographical-segmentation">c) Geographical Segmentation</h2>
+</section>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<p>[1] <em>"Andres, Luis; Chellaraj, Gnanaraj; Das Gupta, Basab; Grabinsky, Jonathan; Joseph, George. 2018. Why Are So Many Water Points in Nigeria Non-Functional? : An Empirical Analysis of Contributing Factors. Policy Research Working Paper;No.&nbsp;8388. World Bank, Washington, DC. © World Bank. https://openknowledge.worldbank.org/handle/10986/29568 License: CC BY 3.0 IGO."</em></p>
 
 
 </section>
