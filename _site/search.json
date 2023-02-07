@@ -25,7 +25,7 @@
     "href": "Project-Proposal/Proposal.html#a-overview",
     "title": "Project Proposal",
     "section": "a) Overview",
-    "text": "a) Overview\nThe first tab shows an overview revealing high level patterns."
+    "text": "a) Overview\nThe first tab shows an overview revealing high level patterns. It can display locations of functional, non-functional and unknown water points in term of country level or regional level throughout Nigeria. The intention is to help the users visualize which region in the country has higher functioning/non-functioning water points at a glance. There will be a few filtering options for the users such as water points status, technology deployed in water points and performance of water points."
   },
   {
     "objectID": "Project-Proposal/Proposal.html#b-visual-analysis",

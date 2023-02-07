@@ -25,9 +25,15 @@ The scope of this project is to reveal and understand the spread and geospatial 
 
 # 2. Related Relevant Work
 
-# 3. Dataset
+# 3. Data Description
 
-The dataset used is extracted from https://data.waterpointdata.org/dataset/Water-Point-Data-Exchange-Plus-WPdx-/eqje-vguj/data
+As mentioned in the introduction, the data is focused on the water points in Nigeria. It will make use of two data sets.
+
+1.  The first data set is about Nigeria level 2 administrative boundaries which contains GIS data for polygon feature. The data is obtained from <https://data.humdata.org/dataset/nigeria-admin-level-0-1-and-2-administrative-boundaries>
+
+2.  The second data set is about water point related data such as water source and technology deployed etc. The data is obtained from <https://data.waterpointdata.org/dataset/Water-Point-Data-Exchange-Plus-WPdx-/eqje-vguj/data>.
+
+Note: The second data set contains information of other countries including Nigeria. Thedata cleaning and filtering for only Nigeria country are done before importing the data set into RStudio.
 
 # 4. Approach + Prototype
 
@@ -37,7 +43,9 @@ It will be split into 3 sections/tabs as shown below:
 
 ## a) Overview
 
-The first tab shows an overview revealing high level patterns.
+The first tab shows an overview revealing high level patterns. It can display locations of functional, non-functional and unknown water points in term of country level or regional level throughout Nigeria. The intention is to help the users visualize which region in the country has higher functioning/non-functioning water points at a glance. There will be a few filtering options for the users such as water points status, technology deployed in water points and performance of water points.
+
+![](images/Overview.jpg.jfif)
 
 ## b) Visual Analysis
 
@@ -51,4 +59,4 @@ This will help users identify relationships or correlations between difference f
 
 # References
 
-\[1\] *\"Andres, Luis; Chellaraj, Gnanaraj; Das Gupta, Basab; Grabinsky, Jonathan; Joseph, George. 2018. Why Are So Many Water Points in Nigeria Non-Functional? : An Empirical Analysis of Contributing Factors. Policy Research Working Paper;No. 8388. World Bank, Washington, DC. © World Bank. https://openknowledge.worldbank.org/handle/10986/29568 License: CC BY 3.0 IGO.\"*
+\[1\] *"Andres, Luis; Chellaraj, Gnanaraj; Das Gupta, Basab; Grabinsky, Jonathan; Joseph, George. 2018. Why Are So Many Water Points in Nigeria Non-Functional? : An Empirical Analysis of Contributing Factors. Policy Research Working Paper;No. 8388. World Bank, Washington, DC. © World Bank. https://openknowledge.worldbank.org/handle/10986/29568 License: CC BY 3.0 IGO."*
