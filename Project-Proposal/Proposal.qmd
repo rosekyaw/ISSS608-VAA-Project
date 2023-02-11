@@ -45,7 +45,7 @@ It will be split into 3 sections/tabs as shown below:
 
 The first tab shows an overview revealing high level patterns. It can display locations of functional, non-functional and unknown water points in term of country level or regional level throughout Nigeria. The intention is to help the users visualize which region in the country has higher functioning/non-functioning water points at a glance. There will be a few filtering options for the users such as water points status, technology deployed in water points and performance of water points.
 
-![](images/Overview.jpg.jfif)
+![](images/Overview.jpg.jfif){fig-align="left" width="400"}
 
 ## b) Visual Analysis
 
@@ -55,7 +55,15 @@ The second tab applies visual analytics techniques to the dataset. We make use o
 
 This will help users identify relationships or correlations between difference features such as technology used or pressure score with number of non-functional water points through correlation matrices. It may also allow users to compare statistics across different districts through oneway ANOVA tests visualizations.
 
+![](images/Group%2041.png){fig-align="left" width="400"}
+
 ## c) Geographical Segmentation
+
+The third tab focus on helping users to visualise geographical segmentation by grouping the water points according to their statistical attributes and spatial location.
+
+There will be a user interface panel that allows user to select which method to identify number of optimal cluster (include silhouette, elbow,) , heatmap and clustering analysis (include hierarchical clustering method).
+
+![](images/Group%2042-01.png){fig-align="left" width="400"}
 
 # References
 

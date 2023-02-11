@@ -39,7 +39,7 @@
     "href": "Project-Proposal/Proposal.html#c-geographical-segmentation",
     "title": "Project Proposal",
     "section": "c) Geographical Segmentation",
-    "text": "c) Geographical Segmentation"
+    "text": "c) Geographical Segmentation\nThe third tab focus on helping users to visualise geographical segmentation by grouping the water points according to their statistical attributes and spatial location.\nThere will be a user interface panel that allows user to select which method to identify number of optimal cluster (include silhouette, elbow,) , heatmap and clustering analysis (include hierarchical clustering method)."
   },
   {
     "objectID": "user_guide.html",
