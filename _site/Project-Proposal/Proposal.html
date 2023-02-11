@@ -179,10 +179,19 @@ ul.task-list li input[type="checkbox"] {
 <h1>3. Data Description</h1>
 <p>As mentioned in the introduction, the data is focused on the water points in Nigeria. It will make use of two data sets.</p>
 <ol type="1">
-<li><p>The first data set is about Nigeria level 2 administrative boundaries, which contains GIS data for polygon features. The data is obtained from <a href="https://data.humdata.org/dataset/nigeria-admin-level-0-1-and-2-administrative-boundaries" class="uri">https://data.humdata.org/dataset/nigeria-admin-level-0-1-and-2-administrative-boundaries</a></p></li>
-<li><p>The second data set is about water point-related data such as water source and technology deployed etc. The data is obtained from <a href="https://data.waterpointdata.org/dataset/Water-Point-Data-Exchange-Plus-WPdx-/eqje-vguj/data" class="uri">https://data.waterpointdata.org/dataset/Water-Point-Data-Exchange-Plus-WPdx-/eqje-vguj/data</a>.</p></li>
+<li><p>The first data set is about Nigeria level 2 administrative boundaries which contains GIS data for polygon feature. The data is obtained from <a href="https://data.humdata.org/dataset/nigeria-admin-level-0-1-and-2-administrative-boundaries" class="uri">https://data.humdata.org/dataset/nigeria-admin-level-0-1-and-2-administrative-boundaries</a></p></li>
+<li><p>The second data set is about water point related data such as water source and technology deployed etc. The data is obtained from <a href="https://data.waterpointdata.org/dataset/Water-Point-Data-Exchange-Plus-WPdx-/eqje-vguj/data" class="uri">https://data.waterpointdata.org/dataset/Water-Point-Data-Exchange-Plus-WPdx-/eqje-vguj/data</a>.</p></li>
 </ol>
-<p>Note: The second data set contains information of other countries, including Nigeria. The data cleaning and filtering for only Nigeria country are done before importing the data set into RStudio.</p>
+<p>Below are some of the key variables from the second data set that we plan to use in data visualisation:</p>
+<ul>
+<li><p>Types of water points - Functional, Non-functional and Unknown</p></li>
+<li><p>Technology deployed in water points - Hand pump, Mechanized pump, Rope and Bucket, Tapstand</p></li>
+<li><p>Water source - Borehole, Piped water, Protected shallow well, Protected Spring, Protected Well</p></li>
+<li><p>Pressure score of water points (0-100%) - The ratio of number of people assigned to the particular water point over the theoretical maximum population which can be served based on the technology</p></li>
+<li><p>Crucial score of water point (0-100%) - The ratio of number of likely current users to the total local population within a 1km radius of the particular water point.</p></li>
+<li><p>Usage capacity of water points - Recommended maximum users per water point.</p></li>
+</ul>
+<p>Note: The second data set contains information of other countries including Nigeria. The data cleaning and filtering of only Nigeria country are done before importing the data set into RStudio.</p>
 </section>
 <section id="approach-prototype" class="level1">
 <h1>4. Approach + Prototype</h1>
@@ -226,7 +235,7 @@ ul.task-list li input[type="checkbox"] {
 
 <ol>
 <li id="fn1"><p>“Andres, Luis; Chellaraj, Gnanaraj; Das Gupta, Basab; Grabinsky, Jonathan; Joseph, George. 2018. Why Are So Many Water Points in Nigeria Non-Functional? : An Empirical Analysis of Contributing Factors. Policy Research Working Paper;No.&nbsp;8388. World Bank, Washington, DC. © World Bank. https://openknowledge.worldbank.org/handle/10986/29568 License: CC BY 3.0 IGO.”<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Jaya, I.G.M., Ruchjana, B.N., Andriyana, Y. &amp; Agata, R (2019) <a href="https://iopscience.iop.org/article/10.1088/1742-6596/1397/1/012068">"Clustering with spatial constraints: The case of diarrhea in Bandung city, Indonesia"</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Jaya, I.G.M., Ruchjana, B.N., Andriyana, Y. &amp; Agata, R (2019) <a href="https://iopscience.iop.org/article/10.1088/1742-6596/1397/1/012068">“Clustering with spatial constraints: The case of diarrhea in Bandung city, Indonesia”</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>TAN, Yong Ying and KAM, Tin Seong. Exploring and visualizing household electricity consumption patterns in Singapore: A geospatial analytics approach. (2019). <em>Information in Contemporary Society: 14th International Conference, iConference 2019, Washington, DC, March 31-April 3: Proceedings</em>. 11420, 785-796. Research Collection School Of Computing and Information Systems.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->

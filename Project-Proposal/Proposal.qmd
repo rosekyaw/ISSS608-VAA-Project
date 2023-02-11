@@ -29,7 +29,7 @@ The scope of this project is to reveal and understand the spread and geospatial 
 
 A related research article by Jaya et al., 2019[^2] performed clustering with spatial constraints to identify high/low risk areas for disease surveillance. Based on their approach, we believe we can also use clustering to identify high/low-risk areas for non-functional water points.
 
-[^2]: Jaya, I.G.M., Ruchjana, B.N., Andriyana, Y. & Agata, R (2019) [\"Clustering with spatial constraints: The case of diarrhea in Bandung city, Indonesia\"](https://iopscience.iop.org/article/10.1088/1742-6596/1397/1/012068)
+[^2]: Jaya, I.G.M., Ruchjana, B.N., Andriyana, Y. & Agata, R (2019) ["Clustering with spatial constraints: The case of diarrhea in Bandung city, Indonesia"](https://iopscience.iop.org/article/10.1088/1742-6596/1397/1/012068)
 
 Another related research paper by Tan, 2019[^3] used Local indicators of spatial association (LISA) calculation on public housing postal codes to discover local clusters of households based on electricity consumption patterns. By faceting the visualizations by dwelling type, electricity consumption of planning sub-zones, the author identified three profiles of consumption sub-zone. Based on their approach, we can also use visualizations by district to identify areas with a high crucial score, or high number of functional water points.
 
@@ -39,11 +39,25 @@ Another related research paper by Tan, 2019[^3] used Local indicators of spatial
 
 As mentioned in the introduction, the data is focused on the water points in Nigeria. It will make use of two data sets.
 
-1.  The first data set is about Nigeria level 2 administrative boundaries, which contains GIS data for polygon features. The data is obtained from <https://data.humdata.org/dataset/nigeria-admin-level-0-1-and-2-administrative-boundaries>
+1.  The first data set is about Nigeria level 2 administrative boundaries which contains GIS data for polygon feature. The data is obtained from <https://data.humdata.org/dataset/nigeria-admin-level-0-1-and-2-administrative-boundaries>
 
-2.  The second data set is about water point-related data such as water source and technology deployed etc. The data is obtained from <https://data.waterpointdata.org/dataset/Water-Point-Data-Exchange-Plus-WPdx-/eqje-vguj/data>.
+2.  The second data set is about water point related data such as water source and technology deployed etc. The data is obtained from <https://data.waterpointdata.org/dataset/Water-Point-Data-Exchange-Plus-WPdx-/eqje-vguj/data>.
 
-Note: The second data set contains information of other countries, including Nigeria. The data cleaning and filtering for only Nigeria country are done before importing the data set into RStudio.
+Below are some of the key variables from the second data set that we plan to use in data visualisation:
+
+-   Types of water points - Functional, Non-functional and Unknown
+
+-   Technology deployed in water points - Hand pump, Mechanized pump, Rope and Bucket, Tapstand
+
+-   Water source - Borehole, Piped water, Protected shallow well, Protected Spring, Protected Well
+
+-   Pressure score of water points (0-100%) - The ratio of number of people assigned to the particular water point over the theoretical maximum population which can be served based on the technology
+
+-   Crucial score of water point (0-100%) - The ratio of number of likely current users to the total local population within a 1km radius of the particular water point.
+
+-   Usage capacity of water points - Recommended maximum users per water point.
+
+Note: The second data set contains information of other countries including Nigeria. The data cleaning and filtering of only Nigeria country are done before importing the data set into RStudio.
 
 # 4. Approach + Prototype
 
