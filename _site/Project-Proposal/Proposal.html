@@ -124,7 +124,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#b-visual-analysis" id="toc-b-visual-analysis" class="nav-link" data-scroll-target="#b-visual-analysis">b) Visual Analysis</a></li>
   <li><a href="#c-geographical-segmentation" id="toc-c-geographical-segmentation" class="nav-link" data-scroll-target="#c-geographical-segmentation">c) Geographical Segmentation</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -168,64 +167,69 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="motivation" class="level1">
 <h1>1. Motivation</h1>
-<p>According to a research paper [1] which utilises information from the 2015 Nigeria National Water and Sanitation Survey, more than 38 percent of all improved water points in Nigeria are non-functional. Hence, it would be in the interest of the Nigerian government as well as non-governmental organizations and researchers to discover waterpoints patterns in Nigeria and potentially figure out what is causing the problem and how to solve it.</p>
-<p>The scope of this project is to reveal and understand the spread and geospatial patterns of functional and non-functional waterpoints in Nigeria. This will help reduce the difficulty of users such as the government, local community planners and academic researchers in visualising waterpoint patterns in Nigeria. The aim is to make the data more accessible and easier to interpret by having interactive charts showing both high level patterns and low level details such as water access by district.</p>
+<p>According to a research paper<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> which utilises information from the 2015 Nigeria National Water and Sanitation Survey, more than 38 percent of all improved water points in Nigeria are non-functional. Hence, it would be in the interest of the Nigerian government as well as non-governmental organizations and researchers to discover water points patterns in Nigeria and potentially figure out what is causing the problem and how to solve it.</p>
+<p>The scope of this project is to reveal and understand the spread and geospatial patterns of functional and non-functional waterpoints in Nigeria. This will help reduce the difficulty of users such as the government, local community planners and academic researchers in visualising waterpoint patterns in Nigeria. The aim is to make the data more accessible and easier to interpret by having interactive charts showing both high-level patterns and low-level details, such as water access by the district.</p>
 </section>
 <section id="related-relevant-work" class="level1">
 <h1>2. Related Relevant Work</h1>
+<p>A related research article by Jaya et al., 2019<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> performed clustering with spatial constraints to identify high/low risk areas for disease surveillance. Based on their approach, we believe we can also use clustering to identify high/low-risk areas for non-functional water points.</p>
+<p>Another related research paper by Tan, 2019<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> used Local indicators of spatial association (LISA) calculation on public housing postal codes to discover local clusters of households based on electricity consumption patterns. By faceting the visualizations by dwelling type, electricity consumption of planning sub-zones, the author identified three profiles of consumption sub-zone. Based on their approach, we can also use visualizations by district to identify areas with a high crucial score, or high number of functional water points.</p>
 </section>
 <section id="data-description" class="level1">
 <h1>3. Data Description</h1>
 <p>As mentioned in the introduction, the data is focused on the water points in Nigeria. It will make use of two data sets.</p>
 <ol type="1">
-<li><p>The first data set is about Nigeria level 2 administrative boundaries which contains GIS data for polygon feature. The data is obtained from <a href="https://data.humdata.org/dataset/nigeria-admin-level-0-1-and-2-administrative-boundaries" class="uri">https://data.humdata.org/dataset/nigeria-admin-level-0-1-and-2-administrative-boundaries</a></p></li>
-<li><p>The second data set is about water point related data such as water source and technology deployed etc. The data is obtained from <a href="https://data.waterpointdata.org/dataset/Water-Point-Data-Exchange-Plus-WPdx-/eqje-vguj/data" class="uri">https://data.waterpointdata.org/dataset/Water-Point-Data-Exchange-Plus-WPdx-/eqje-vguj/data</a>.</p></li>
+<li><p>The first data set is about Nigeria level 2 administrative boundaries, which contains GIS data for polygon features. The data is obtained from <a href="https://data.humdata.org/dataset/nigeria-admin-level-0-1-and-2-administrative-boundaries" class="uri">https://data.humdata.org/dataset/nigeria-admin-level-0-1-and-2-administrative-boundaries</a></p></li>
+<li><p>The second data set is about water point-related data such as water source and technology deployed etc. The data is obtained from <a href="https://data.waterpointdata.org/dataset/Water-Point-Data-Exchange-Plus-WPdx-/eqje-vguj/data" class="uri">https://data.waterpointdata.org/dataset/Water-Point-Data-Exchange-Plus-WPdx-/eqje-vguj/data</a>.</p></li>
 </ol>
-<p>Note: The second data set contains information of other countries including Nigeria. Thedata cleaning and filtering for only Nigeria country are done before importing the data set into RStudio.</p>
+<p>Note: The second data set contains information of other countries, including Nigeria. The data cleaning and filtering for only Nigeria country are done before importing the data set into RStudio.</p>
 </section>
 <section id="approach-prototype" class="level1">
 <h1>4. Approach + Prototype</h1>
-<p>Using various R packages such as ggplot2, ggplot2 extensions and tidyverse packages., the team will extract, analyse, and visualize geospatial patterns of functional and non-functional waterpoints and build an interactive R Shiny application with visual analytics techniques.</p>
-<p>It will be split into 3 sections/tabs as shown below:</p>
+<p>Using various R packages such as ggplot2, ggplot2 extensions and tidyverse packages., the team will extract, analyse, and visualize geospatial patterns of functional and non-functional water points and build an interactive R Shiny application with visual analytics techniques.</p>
+<p>It will be split into 3 sections/tabs, as shown below:</p>
 <section id="a-overview" class="level2">
 <h2 class="anchored" data-anchor-id="a-overview">a) Overview</h2>
-<p>The first tab shows an overview revealing high level patterns. It can display locations of functional, non-functional and unknown water points in term of country level or regional level throughout Nigeria. The intention is to help the users visualize which region in the country has higher functioning/non-functioning water points at a glance. There will be a few filtering options for the users such as water points status, technology deployed in water points and performance of water points.</p>
+<p>The first tab shows an overview revealing high-level patterns. It can display locations of functional, non-functional and unknown water points in terms of country-level or district-level throughout Nigeria. The intention is to help the users visualise which region in the country has higher functioning/non-functioning water points at a glance. There will be a few filtering options for the users, such as water points status, technology deployed in water points and performance of water points.</p>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src="images/Overview.jpg.jfif" class="img-fluid figure-img" width="400"></p>
+<p><img src="images/Group 46.png" class="img-fluid figure-img" width="400"></p>
 </figure>
 </div>
 </section>
 <section id="b-visual-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="b-visual-analysis">b) Visual Analysis</h2>
-<p><em>Figma Image</em></p>
-<p>The second tab applies visual analytics techniques to the dataset. We make use of analytics approach for knowledge discovery, statistical testing as well as visualising uncertainty. Graphs include correlation matrices, errors bars, confidence strips, ridge plot and funnel plot.</p>
-<p>This will help users identify relationships or correlations between difference features such as technology used or pressure score with number of non-functional water points through correlation matrices. It may also allow users to compare statistics across different districts through oneway ANOVA tests visualizations.</p>
+<p>The second tab applies visual analytics techniques to the dataset. We make use of analytics approach for knowledge discovery, statistical testing as well as visualising uncertainty. Graphs include correlation matrices, error bars, confidence strips, ridge plot and funnel plot.</p>
+<p>This will help users identify relationships or correlations between different features, such as technology used or pressure score with number of non-functional water points through correlation matrices. It may also allow users to compare statistics across different districts through oneway ANOVA tests visualisations.</p>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src="images/Group 41.png" class="img-fluid figure-img" width="400"></p>
+<p><img src="images/Group 44.png" class="img-fluid figure-img" width="400"></p>
 </figure>
 </div>
 </section>
 <section id="c-geographical-segmentation" class="level2">
 <h2 class="anchored" data-anchor-id="c-geographical-segmentation">c) Geographical Segmentation</h2>
-<p>The third tab focus on helping users to visualise geographical segmentation by grouping the water points according to their statistical attributes and spatial location.</p>
-<p>There will be a user interface panel that allows user to select which method to identify number of optimal cluster (include silhouette, elbow,) , heatmap and clustering analysis (include hierarchical clustering method).</p>
+<p>The third tab focuses on helping users to visualise geographical segmentation by grouping the water points according to their statistical attributes and spatial location.</p>
+<p>There will be a user interface panel that allows users to select which method to identify the number of optimal cluster (including silhouette, elbow) , heatmap and clustering analysis (including hierarchical clustering method).</p>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src="images/Group 42-01.png" class="img-fluid figure-img" width="400"></p>
+<p><img src="images/Group 45.png" class="img-fluid figure-img" width="400"></p>
 </figure>
 </div>
-</section>
-</section>
-<section id="references" class="level1">
-<h1>References</h1>
-<p>[1] <em>“Andres, Luis; Chellaraj, Gnanaraj; Das Gupta, Basab; Grabinsky, Jonathan; Joseph, George. 2018. Why Are So Many Water Points in Nigeria Non-Functional? : An Empirical Analysis of Contributing Factors. Policy Research Working Paper;No.&nbsp;8388. World Bank, Washington, DC. © World Bank. https://openknowledge.worldbank.org/handle/10986/29568 License: CC BY 3.0 IGO.”</em></p>
 
 
 </section>
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>“Andres, Luis; Chellaraj, Gnanaraj; Das Gupta, Basab; Grabinsky, Jonathan; Joseph, George. 2018. Why Are So Many Water Points in Nigeria Non-Functional? : An Empirical Analysis of Contributing Factors. Policy Research Working Paper;No.&nbsp;8388. World Bank, Washington, DC. © World Bank. https://openknowledge.worldbank.org/handle/10986/29568 License: CC BY 3.0 IGO.”<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Jaya, I.G.M., Ruchjana, B.N., Andriyana, Y. &amp; Agata, R (2019) <a href="https://iopscience.iop.org/article/10.1088/1742-6596/1397/1/012068">"Clustering with spatial constraints: The case of diarrhea in Bandung city, Indonesia"</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>TAN, Yong Ying and KAM, Tin Seong. Exploring and visualizing household electricity consumption patterns in Singapore: A geospatial analytics approach. (2019). <em>Information in Contemporary Society: 14th International Conference, iConference 2019, Washington, DC, March 31-April 3: Proceedings</em>. 11420, 785-796. Research Collection School Of Computing and Information Systems.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
