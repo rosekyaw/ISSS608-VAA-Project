@@ -19,3 +19,69 @@ format:
 ---
 
 # User Guide
+
+```{r}
+pacman::p_load(sf, tmap, shiny, shinythemes, plotly, tidyverse, ggstatsplot, tools)
+```
+
+```{r}
+wp_ngaTrim <- read_rds("data/geodata/wp_ngaTrim.rds")
+```
+
+```{r}
+tm_shape(wp_ngaTrim) +
+  tm_fill("pct_functional",
+          n = 5,
+          style = "pretty",
+          palette = "YlOrRd") +
+  tm_borders(lwd = 0.1,  
+             alpha = 1) +
+  tm_view(set.zoom.limits = c(11, 14))
+```
+
+```{r}
+districts <- wp_ngaTrim %>%
+  filter(shapeName %in% "Aba North")
+```
+
+```{r}
+inputDistrict <-  wp_ngaTrim %>%
+  filter(shapeName %in% c("Aba North", "Apa"))
+```
+
+```{r}
+tm_shape(wp_ngaTrim) +
+  tm_polygons() +
+tm_shape(inputDistrict) +
+  tm_fill("pct_functional",
+          n = 5,
+          style = "pretty",
+          palette = "YlOrRd") +
+  tm_borders(lwd = 0.1,  
+             alpha = 1) +
+  tm_view(set.zoom.limits = c(11, 14))
+```
+
+```{r}
+tm_shape(wp_ngaTrim) +
+  tm_polygons() +
+tm_shape(districts) +
+  tm_fill("pct_functional",
+          n = 5,
+          style = "pretty",
+          palette = "YlOrRd") +
+  tm_borders(lwd = 0.1,  
+             alpha = 1) +
+  tm_view(set.zoom.limits = c(11, 14))
+```
+
+```{r}
+tm_shape(districts) +
+  tm_fill("pct_functional",
+          n = 5,
+          style = "pretty",
+          palette = "YlOrRd") +
+  tm_borders(lwd = 0.1,  
+             alpha = 1) +
+  tm_view(set.zoom.limits = c(11, 14))
+```
