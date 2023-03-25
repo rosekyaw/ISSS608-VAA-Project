@@ -29,6 +29,112 @@ wp_ngaTrim <- read_rds("data/geodata/wp_ngaTrim.rds")
 ```
 
 ```{r}
+clusterVarsInput <- wp_ngaTrim %>%
+  st_set_geometry(NULL) %>%
+  select("shapeName",
+         "pct_functional", 
+         "pct_nonFunctional",
+         "pct_handPump",
+         "pct_mechPump",
+         "pct_tapStand",
+         "pct_uc300",
+         "pct_uc1000",
+         "pct_ucN1000",
+         "pct_uc250",
+         "pct_urban1",
+         "pct_urban0",
+         "pct_cs04",
+         "pct_cs10",
+         "pct_stat1",
+         "pct_stat0",
+         "pct_ps09",
+         "pct_ps19")
+```
+
+```{r}
+hclust_ward <- hclust((dist(clusterVarsInput, 
+                     method = 'euclidean')), 
+                      method = 'ward.D')
+```
+
+```{r}
+groups1 <- as.factor(cutree((hclust((dist(clusterVarsInput, 
+                     method = 'euclidean')), 
+                      method = 'ward.D')), k = 3))
+```
+
+```{r}
+nga_clust.sf1 <- cbind(wp_ngaTrim, as.matrix(as.factor(cutree((hclust((dist(clusterVarsInput, 
+                     method = 'euclidean')), 
+                      method = 'ward.D')), k = 3))))
+```
+
+```{r}
+colnames(nga_clust.sf1)[44]
+```
+
+```{r}
+nga_clust.sf1$as.matrix.as.factor.cutree..hclust..dist.cluster_vars..method....euclidean.....
+```
+
+```{r}
+prox_mat_euc <- dist(cluster_vars, 
+                     method = 'euclidean')
+```
+
+```{r}
+hclust_ward <- hclust(prox_mat_euc, 
+                      method = 'ward.D')
+```
+
+```{r}
+groups <- as.factor(cutree(hclust_ward, k = 3))
+```
+
+```{r}
+nga_clust.sf <- cbind(wp_ngaTrim, as.matrix(groups)) %>%
+  rename(`cluster`=`as.matrix.groups.`)
+```
+
+```{r}
+tm_shape(nga_clust.sf) +
+  tm_fill(col = "cluster",
+          title = "Cluster") +
+  tm_borders(alpha = 0.3) +
+  tm_style("cobalt") +
+  tm_layout(main.title = "Non-Spatial Hierarchical Clustering",
+            main.title.size = 1.1,
+            main.title.position = "center",
+            legend.height = 0.3,
+            legend.width = 0.1, 
+            legend.title.size = 1,
+            legend.text.size = 1,
+            frame = TRUE,
+            asp = 0)
+```
+
+```{r}
+wp_stdMM <- normalize(cluster_vars)
+```
+
+```{r}
+
+```
+
+```{r}
+ngaClustSF <- st_sf((cbind(wp_ngaTrim, 
+                           as.matrix
+                           (as.factor
+                             (cutree
+                               (hclust
+                                 (dist
+                                   (wp_ngaTrim, 
+                                     method = 'euclidean'), 
+                                   method = 'ward.D'),
+                                 k = 3))))), crs = 26392)
+```
+
+```{r}
 tm_shape(wp_ngaTrim) +
   tm_fill("pct_functional",
           n = 5,
