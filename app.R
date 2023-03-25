@@ -1,3 +1,9 @@
+#################################
+#
+# Install and load packages
+#
+#################################
+# 
 packages = c('shiny','shinythemes','shinydashboard','dashboardthemes','stringr','readxl','tidyverse','forcats',  #shiny and utilities
              'tidyquant','caTools','forecast','TSA','tseries','quantmod','timeSeries','xts','scales','car','ROCR',  #stats analysis
              'treemapify','shinyWidgets','plotly','sjPlot', 'DT','ggstatsplot', 'tools', 'tmap','sf','corrplot')   #visualization
@@ -9,14 +15,19 @@ for (p in packages){
   library(p,character.only = T)
 }
 
+#################################
+#
+# Data Preparation
+#
+#################################
+
+# Load the data
 wp_ngaTrim <- read_rds("data/wp_ngaTrim.rds")
 wp_ngaTrim_data <- read_rds("data/wp_ngaTrim_data.rds")
 wp_nga <- read_rds("data/wp_nga.rds")
 
 # List of unique states
 states <- append(unique(wp_ngaTrim_data[,c('state')]),"All",after=0)
-#states.sort <- sort(unique(wp_ngaTrim_data[,c('state')]))
-#states.multi <- c("All" = "",unique(wp_ngaTrim_data[,c('state')]))
 
 cluster_vars <- wp_ngaTrim %>%
   st_set_geometry(NULL) %>%
@@ -41,24 +52,14 @@ cluster_vars <- wp_ngaTrim %>%
          "pct_ps19")
 
 row.names(cluster_vars) <- cluster_vars$shapeName
-cluster_vars <- cluster_vars %>%
-  select(-shapeName)
+cluster_vars <- cluster_vars %>% select(-shapeName)
 
-# Sidebar
-sidebar <- dashboardSidebar(
-  sidebarMenu(
-    menuItem("Overview" ,tabName = "Intro", icon = icon("dashboard")),
-    menuItem("Visual Inferential Analysis",tabName = "Inferential", icon = icon("chart-line")),
-    menuItem("Geographical Segmentation", tabName = "Segmentation", icon = icon("image")),
-    menuItem("Theme", tabName = "tabThemes", icon = icon("cog"))
-  ))
 
 #################################
 #
-# Module change theme
+# UI
 #
 #################################
-
 
 # Ui functions ------------------------------------------------------------
 uiChangeThemeDropdown <- function(dropDownLabel = "Change Theme", defaultTheme = "blue_gradient")
@@ -74,11 +75,11 @@ uiChangeThemeDropdown <- function(dropDownLabel = "Change Theme", defaultTheme =
   )
   
   dropdown <- tagList(
-        selectizeInput(
-        inputId = "dbxChangeTheme",
-        label = dropDownLabel,
-        choices = changeThemeChoices,
-        selected = defaultTheme))
+    selectizeInput(
+      inputId = "dbxChangeTheme",
+      label = dropDownLabel,
+      choices = changeThemeChoices,
+      selected = defaultTheme))
   
   return(dropdown)
 }
@@ -90,18 +91,21 @@ uiChangeThemeOutput <- function()
 }
 
 
-#################################
-#
-# UI
-#
-#################################
+# Sidebar
+sidebar <- dashboardSidebar(
+  sidebarMenu(
+    menuItem("Overview" ,tabName = "Intro", icon = icon("dashboard")),
+    menuItem("Visual Inferential Analysis",tabName = "Inferential", icon = icon("chart-line")),
+    menuItem("Geographical Segmentation", tabName = "Segmentation", icon = icon("image")),
+    menuItem("Theme", tabName = "tabThemes", icon = icon("cog"))
+  ))
 
-
+# Visual Inferential Analysis
 inferential_tab <- tabItem(
   tabName = "Inferential",
-  #Creating Sub-Panels
+  # Creating Sub-Panels
   fluidPage(
-  #Helptext
+  # Helptext
   fluidRow(
     column(12,helpText("Select the different sub tabs to find out more. Visualization may take some time to render.", style = "font-size:110%;font-style:italic;" ), )),
   fluidRow(
@@ -173,10 +177,6 @@ inferential_tab <- tabItem(
                                                                       "% pressure score 09" = "pct_ps09",
                                                                       "% pressure score 19" = "pct_ps19"),
                                                        selected="pct_functionall"),
-#                                    ),
-#                                  ),
-#                                  fluidRow(
-#                                    column(10,
                                            selectInput("return_corr2", "Please select Variable 2 (y-axis):",
                                                        choices = list("Total Waterpoints" = "total_wp",
                                                                       "% functional" = "pct_functional", 
@@ -216,7 +216,7 @@ inferential_tab <- tabItem(
     )
     )))))
 
-
+# Overview
 overview_tab <- tabItem(
   tabName = "Intro",
   fluidPage(
@@ -332,6 +332,7 @@ ui <- dashboardPage(
 #################################
 server <- function(input, output, session) {
   
+  # Change Theme
   observeEvent(
     input$dbxChangeTheme, 
     {
