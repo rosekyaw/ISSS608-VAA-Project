@@ -1,4 +1,3 @@
-#pacman::p_load(sf, tmap, shiny, shinythemes, plotly, tidyverse, ggstatsplot, tools)
 packages = c('shiny','shinythemes','shinydashboard','dashboardthemes','stringr','readxl','tidyverse','forcats',  #shiny and utilities
              'tidyquant','caTools','forecast','TSA','tseries','quantmod','timeSeries','xts','scales','car','ROCR',  #stats analysis
              'treemapify','shinyWidgets','plotly','sjPlot', 'DT','ggstatsplot', 'tools', 'tmap','sf','corrplot')   #visualization
@@ -62,7 +61,7 @@ sidebar <- dashboardSidebar(
 
 
 # Ui functions ------------------------------------------------------------
-uiChangeThemeDropdown <- function(dropDownLabel = "Change Theme", defaultTheme = "poor_mans_flatly")
+uiChangeThemeDropdown <- function(dropDownLabel = "Change Theme", defaultTheme = "blue_gradient")
 {
   changeThemeChoices <- c(
     "Blue gradient" = "blue_gradient",
@@ -74,41 +73,20 @@ uiChangeThemeDropdown <- function(dropDownLabel = "Change Theme", defaultTheme =
     "Purple gradient" = "purple_gradient"
   )
   
-  ns <- NS("moduleChangeTheme")
   dropdown <- tagList(
-    selectizeInput(
-      inputId = ns("dbxChangeTheme"),
-      label = dropDownLabel,
-      choices = changeThemeChoices,
-      selected = defaultTheme
-    )
-  )
+        selectizeInput(
+        inputId = "dbxChangeTheme",
+        label = dropDownLabel,
+        choices = changeThemeChoices,
+        selected = defaultTheme))
   
   return(dropdown)
 }
 
 uiChangeThemeOutput <- function()
 {
-  ns <- NS("moduleChangeTheme")
-  themeOutput <- tagList(
-    uiOutput(ns("uiChangeTheme"))
-  )
-  
+  themeOutput <- uiOutput("uiChangeTheme")
   return(themeOutput)
-}
-
-
-# Server functions --------------------------------------------------------
-serverChangeTheme <- function(input, output, session)
-{
-  observeEvent(
-    input$dbxChangeTheme, 
-    {
-      output$uiChangeTheme <- renderUI({
-        shinyDashboardThemes(theme = input$dbxChangeTheme)
-      })
-    }
-  )
 }
 
 
@@ -352,10 +330,13 @@ ui <- dashboardPage(
 # Server
 #
 #################################
-
-#callModule(module = serverChangeTheme, id = "moduleChangeTheme")
-
-server <- function(input, output) {
+server <- function(input, output, session) {
+  
+  observeEvent(
+    input$dbxChangeTheme, 
+    {
+      output$uiChangeTheme <- renderUI({shinyDashboardThemes(theme = input$dbxChangeTheme)})
+    })
   
   #Overview (Rose's part)
   output$ngaMap <- renderTmap({
@@ -451,7 +432,6 @@ server <- function(input, output) {
                       tl.pos = "lt")
         return(corr1)
   })
-  
   
   }
 
