@@ -4,14 +4,35 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "This is the project website for ISSS608-VAA Group 7."
+    "text": "Our team:\nThanks Prof Kam"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "ISSS608-VAA-Project",
+    "objectID": "overview.html",
+    "href": "overview.html",
+    "title": "Overview",
     "section": "",
-    "text": "Welcome to ISSS608 Visual Analytics and Applications. In this website, you will find the project materials for this course."
+    "text": "In rural Africa, access to clean and safe water can be a challenge. Thousands of water points have been installed over the past decade but they are of poor quality or are not well maintained causing them to become non-functional. This can cause waterborne diseases which can destroy lives and livelihoods. One country in West Africa which one faces this issue is Nigeria.\nAccording to a research paper1 which utilises information from the 2015 Nigeria National Water and Sanitation Survey, more than 38 percent of all improved water points in Nigeria are non-functional. Hence, it would be in the interest of the Nigerian government as well as non-governmental organizations and researchers to discover water points patterns in Nigeria and potentially figure out what is causing the problem and how to solve it."
+  },
+  {
+    "objectID": "overview.html#a-overview",
+    "href": "overview.html#a-overview",
+    "title": "Overview",
+    "section": "a) Overview",
+    "text": "a) Overview\nThe first tab shows an overview revealing high-level patterns. It can display locations of functional, non-functional and unknown water points in terms of country-level or district-level throughout Nigeria. The intention is to help the users visualise which region in the country has higher functioning/non-functioning water points at a glance. There will be a few filtering options for the users, such as water points status, technology deployed in water points and performance of water points."
+  },
+  {
+    "objectID": "overview.html#b-visual-inferential-analysis",
+    "href": "overview.html#b-visual-inferential-analysis",
+    "title": "Overview",
+    "section": "b) Visual Inferential Analysis",
+    "text": "b) Visual Inferential Analysis\nThe second tab applies visual analytics techniques to the dataset. We make use of analytics approach for knowledge discovery, statistical testing as well as visualising uncertainty. Graphs include correlation matrices, error bars, confidence strips, ridge plot and funnel plot.\nThis will help users identify relationships or correlations between different features, such as technology used or pressure score with number of non-functional water points through correlation matrices. It may also allow users to compare statistics across different districts through oneway ANOVA tests visualisations."
+  },
+  {
+    "objectID": "overview.html#c-geographical-segmentation",
+    "href": "overview.html#c-geographical-segmentation",
+    "title": "Overview",
+    "section": "c) Geographical Segmentation",
+    "text": "c) Geographical Segmentation\nThe third tab focuses on helping users to visualise geographical segmentation by grouping the water points according to their statistical attributes and spatial location.\nThere will be a user interface panel that allows users to select which method to identify the number of optimal cluster (including silhouette, elbow) , heatmap and clustering analysis (including hierarchical clustering method)."
   },
   {
     "objectID": "Project-Proposal/Proposal.html",

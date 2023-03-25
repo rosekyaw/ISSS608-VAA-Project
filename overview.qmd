@@ -1,0 +1,75 @@
+---
+title: "Overview"
+execute: 
+  echo: true
+  eval: true
+  warning: false
+editor: visual
+code-copy: true
+format:
+  html:
+    code-overflow: wrap
+    code-fold: true
+    code-summary: "Show the code"
+    css: styles.css
+---
+
+# 1. Introduction
+
+In rural Africa, access to clean and safe water can be a challenge. Thousands of water points have been installed over the past decade but they are of poor quality or are not well maintained causing them to become non-functional. This can cause waterborne diseases which can destroy lives and livelihoods. One country in West Africa which faces this issue is Nigeria.
+
+According to a research paper[^1] which utilises information from the 2015 Nigeria National Water and Sanitation Survey, more than 38 percent of all improved water points in Nigeria are non-functional. Hence, it would be in the interest of the Nigerian government as well as non-governmental organizations and researchers to discover water points patterns in Nigeria and potentially figure out what is causing the problem and how to solve it.
+
+[^1]: "Andres, Luis; Chellaraj, Gnanaraj; Das Gupta, Basab; Grabinsky, Jonathan; Joseph, George. 2018. Why Are So Many Water Points in Nigeria Non-Functional? : An Empirical Analysis of Contributing Factors. Policy Research Working Paper;No. 8388. World Bank, Washington, DC. © World Bank. https://openknowledge.worldbank.org/handle/10986/29568 License: CC BY 3.0 IGO."
+
+# 2. Motivation
+
+We attempt to reveal and understand the spread and geospatial patterns of functional and non-functional waterpoints in Nigeria. This will help reduce the difficulty of users such as the government, local community planners and academic researchers in visualising waterpoint patterns in Nigeria. The aim is to make the data more accessible and easier to interpret by having interactive charts showing both high-level patterns and low-level details, such as water access by the district.
+
+The outcome of this is that users can better understand what factors are leading to non-functional waterpoints and where are the non-functional waterpoints concentrated. This will potentially help government and community planners make informed policy decisions, decide where to allocate their resources optimally to fix or maintain water points and eventually improve the quality of lives of the people living in Nigeria.
+
+# 3. Data Description
+
+The data is focused on the water points in Nigeria. It will make use of two data sets.
+
+1.  The first data set is about Nigeria level 2 administrative boundaries which contains GIS data for polygon feature. The data is obtained from <https://data.humdata.org/dataset/nigeria-admin-level-0-1-and-2-administrative-boundaries>
+
+2.  The second data set is about water point related data such as water source and technology deployed etc. The data is obtained from <https://data.waterpointdata.org/dataset/Water-Point-Data-Exchange-Plus-WPdx-/eqje-vguj/data>.
+
+Below are some of the key variables from the second data set that we plan to use in data visualisation:
+
+-   Types of water points - Functional, Non-functional and Unknown
+
+-   Technology deployed in water points - Hand pump, Mechanized pump, Rope and Bucket, Tapstand
+
+-   Water source - Borehole, Piped water, Protected shallow well, Protected Spring, Protected Well
+
+-   Pressure score of water points (0-100%) - The ratio of number of people assigned to the particular water point over the theoretical maximum population which can be served based on the technology
+
+-   Crucial score of water point (0-100%) - The ratio of number of likely current users to the total local population within a 1km radius of the particular water point.
+
+-   Usage capacity of water points - Recommended maximum users per water point.
+
+Note: The second data set contains information of other countries including Nigeria. The data cleaning and filtering of only Nigeria country are done before importing the data set into RStudio.
+
+# 4. Approach
+
+Using various R packages such as ggplot2, ggplot2 extensions and tidyverse packages, the team will extract, analyse, and visualize geospatial patterns of functional and non-functional water points and build an interactive R Shiny application with visual analytics techniques.
+
+It will be split into 3 sections/tabs, as shown below:
+
+## a) Overview
+
+The first tab shows an overview revealing high-level patterns. It can display locations of functional, non-functional and unknown water points in terms of country-level or district-level throughout Nigeria. The intention is to help the users visualise which region in the country has higher functioning/non-functioning water points at a glance. There will be a few filtering options for the users, such as water points status, technology deployed in water points and performance of water points.
+
+## b) Visual Inferential Analysis
+
+The second tab applies visual analytics techniques to the dataset. We make use of analytics approach for knowledge discovery, statistical testing as well as visualising uncertainty. Graphs include correlation matrices, error bars, confidence strips, ridge plot and funnel plot.
+
+This will help users identify relationships or correlations between different features, such as technology used or pressure score with number of non-functional water points through correlation matrices. It may also allow users to compare statistics across different districts through oneway ANOVA tests visualisations.
+
+## c) Geographical Segmentation
+
+The third tab focuses on helping users to visualise geographical segmentation by grouping the water points according to their statistical attributes and spatial location.
+
+There will be a user interface panel that allows users to select which method to identify the number of optimal cluster (including silhouette, elbow) , heatmap and clustering analysis (including hierarchical clustering method).

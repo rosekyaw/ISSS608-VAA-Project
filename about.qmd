@@ -2,4 +2,6 @@
 title: "About"
 ---
 
-This is the project website for ISSS608-VAA Group 7.
+Our team:
+
+Thanks Prof Kam

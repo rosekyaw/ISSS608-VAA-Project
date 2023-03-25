@@ -1,5 +1,0 @@
----
-title: "ISSS608-VAA-Project"
----
-
-Welcome to **ISSS608 Visual Analytics and Applications.** In this website, you will find the project materials for this course.
