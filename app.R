@@ -201,7 +201,7 @@ inferential_tab <- tabItem(
                                   fluidRow(
                                     box(width = 12,
                                         h4('Scatter Plot of Selected Waterpoint Variables'),
-                                        plotOutput('scatter'),
+                                        plotlyOutput('scatter'),
                                     )
                                   ),
                                   fluidRow(
@@ -241,7 +241,8 @@ overview_tab <- tabItem(
                                 "Technology",
                                 "Pressure Score",
                                 "Crucial Score",
-                                "Capacity"),
+                                "Capacity",
+                                "Urban or Rural?"),
                     selected = "Nil"),
         
         # Only show this panel if the parameter is Water Source
@@ -286,6 +287,15 @@ overview_tab <- tabItem(
                       label = "Capacity :",
                       choices = c("Low Capacity" = "pct_lowcap",
                                   "High Capacity" = "pct_highcap")
+          )),
+        
+        # Only show this panel if the parameter is Urban or Rural?
+        conditionalPanel(
+          condition = "input.parameter == 'Urban or Rural?'",
+          selectInput(inputId = "param6",
+                      label = "Urban or Rural? :",
+                      choices = c("Urban" = "pct_urban",
+                                  "Rural" = "pct_rural")
           )),
       ),
       # Show a plot of the generated distribution
@@ -347,25 +357,27 @@ server <- function(input, output, session) {
       tm_fill(input$status,
               n = 5,
               style = "pretty",
-              palette = "YlOrBr") +
+              palette = "Blues") +
       (if('Nil' %in% input$parameter) tm_bubbles(col= 'white', size = 0)
        else tm_bubbles(
          (if('Water Source' %in% input$parameter) col = input$param1
           else if('Technology' %in% input$parameter) col = input$param2
           else if('Pressure Score' %in% input$parameter) col = input$param3
           else if('Crucial Score' %in% input$parameter) col = input$param4
-          else if('Capacity' %in% input$parameter) col = input$param5),
+          else if('Capacity' %in% input$parameter) col = input$param5
+          else if('Urban or Rural?' %in% input$parameter) col = input$param6),
          (if('Water Source' %in% input$parameter) size = input$param1
           else if('Technology' %in% input$parameter) size = input$param2
           else if('Pressure Score' %in% input$parameter) size = input$param3
           else if('Crucial Score' %in% input$parameter) size = input$param4
-          else if('Capacity' %in% input$parameter) size = input$param5),
+          else if('Capacity' %in% input$parameter) size = input$param5
+          else if('Urban or Rural?' %in% input$parameter) size = input$param6),
          n = 5,
-         alpha = 0.7,
+         alpha = 0.6,
          scale = 0.5,
          border.col = "black",
          border.lwd = 0.1,
-         palette = "Dark2")) +
+         palette = "Set3")) +
       tm_borders(lwd = 0.1,  alpha = 1) +
       tm_view(set.zoom.limits = c(5.5, 10.5))
   })
@@ -413,13 +425,11 @@ server <- function(input, output, session) {
   })
  
   #Scatter plot output (Zhi Hao's part)
-  output$scatter <- renderPlot({
-    
+  output$scatter <- renderPlotly({
     scatter1 <- ggplot(data = cluster_vars, 
               aes_string(x = input$return_corr,y = input$return_corr2)) +
-      geom_point() +
-      geom_smooth()
-    
+      geom_point()
+    scatter1 <- ggplotly(scatter1)
     return(scatter1)
   })
   

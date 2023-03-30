@@ -78,7 +78,7 @@ nga_clust.sf1$as.matrix.as.factor.cutree..hclust..dist.cluster_vars..method....e
 ```
 
 ```{r}
-prox_mat_euc <- dist(cluster_vars, 
+prox_mat_euc <- dist(clusterVarsInput, 
                      method = 'euclidean')
 ```
 
@@ -114,7 +114,7 @@ tm_shape(nga_clust.sf) +
 ```
 
 ```{r}
-wp_stdMM <- normalize(cluster_vars)
+#wp_stdMM <- normalize(clusterVarsInput)
 ```
 
 ```{r}
@@ -122,16 +122,16 @@ wp_stdMM <- normalize(cluster_vars)
 ```
 
 ```{r}
-ngaClustSF <- st_sf((cbind(wp_ngaTrim, 
-                           as.matrix
-                           (as.factor
-                             (cutree
-                               (hclust
-                                 (dist
-                                   (wp_ngaTrim, 
-                                     method = 'euclidean'), 
-                                   method = 'ward.D'),
-                                 k = 3))))), crs = 26392)
+# ngaClustSF <- st_sf((cbind(wp_ngaTrim, 
+#                            as.matrix
+#                            (as.factor
+#                              (cutree
+#                                (hclust
+#                                  (dist
+#                                    (wp_ngaTrim, 
+#                                      method = 'euclidean'), 
+#                                    method = 'ward.D'),
+#                                  k = 3))))), crs = 26392)
 ```
 
 ```{r}

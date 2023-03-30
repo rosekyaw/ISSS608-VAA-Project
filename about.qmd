@@ -1,7 +1,51 @@
 ---
-title: "About"
+title: "About Us"
 ---
 
-Our team:
+::: {layout="[4,4]"}
+![](Prof.jpg){style="border-radius:50%" width="300"}
 
-Thanks Prof Kam
+::: {style="text-algin:center;align-items:center"}
+**Prof Kam Tin Seong**
+
+*Supervisor*
+
+📧 : tskam\@smu.edu.sg
+:::
+
+![](rose.jpeg){style="border-radius:50%" width="300"}
+
+::: {style="text-algin:center;align-items:center"}
+**Yun Shwe Yee Kyaw (Rose)**
+
+*Team Member*
+
+📧 : yunshweyeekyaw\@gmail.com
+
+[![](linkedinlogo.jpg){fig-align="left" width="39"}](https://www.linkedin.com/in/yun-shwe-yee-kyaw-b92862122)
+:::
+
+![](profile.jpg){style="border-radius:50%" width="300"}
+
+::: {style="text-algin:center;align-items:center"}
+**Tan Zhi Hao**
+
+*Team Member*
+
+📧 :
+
+![](linkedinlogo.jpg){width="39"}
+:::
+
+![](profile.jpg){style="border-radius:50%" width="300"}
+
+::: {style="text-algin:center;align-items:center"}
+**Tan Zexeong**
+
+*Team Member*
+
+📧 :
+
+![](linkedinlogo.jpg){width="39"}
+:::
+:::
