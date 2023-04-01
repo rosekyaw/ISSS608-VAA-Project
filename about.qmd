@@ -3,9 +3,10 @@ title: "About Us"
 ---
 
 ::: {layout="[4,4]"}
-![](Prof.jpg){style="border-radius:50%" width="300"}
+![](images/Prof.jpg){style="border-radius:50%;border: 3px solid #028097" width="300"}
 
-::: {style="text-algin:center;align-items:center"}
+::: {style="text-algin:center;align-items:center;border: 5px solid;  padding: 50px 0;"}
+
 **Prof Kam Tin Seong**
 
 *Supervisor*
@@ -13,39 +14,42 @@ title: "About Us"
 📧 : tskam\@smu.edu.sg
 :::
 
-![](rose.jpeg){style="border-radius:50%" width="300"}
+![](images/rose.jpeg){style="border-radius:50%;border: 3px solid #028097" width="300"}
 
-::: {style="text-algin:center;align-items:center"}
+::: {style="text-algin:center;align-items:center;border: 5px solid;  padding: 50px 0;"}
+
 **Yun Shwe Yee Kyaw (Rose)**
 
 *Team Member*
 
 📧 : yunshweyeekyaw\@gmail.com
 
-[![](linkedinlogo.jpg){fig-align="left" width="39"}](https://www.linkedin.com/in/yun-shwe-yee-kyaw-b92862122)
+[![](images/linkedinlogo.jpg){fig-align="left" width="25"}](https://www.linkedin.com/in/yun-shwe-yee-kyaw-b92862122)
 :::
 
-![](profile.jpg){style="border-radius:50%" width="300"}
+![](images/ZH.jpg){style="border-radius:50%;border: 3px solid #028097" width="300"}
 
-::: {style="text-algin:center;align-items:center"}
+::: {style="text-algin:center;align-items:center;border: 5px solid;  padding: 50px 0;"}
+
 **Tan Zhi Hao**
 
 *Team Member*
 
-📧 :
+📧 : zhtan_sji\@hotmail.com
 
-![](linkedinlogo.jpg){width="39"}
+[![](images/linkedinlogo.jpg){fig-align="left" width="25"}](https://www.linkedin.com/in/zhi-hao-tan-368a75125)
 :::
 
-![](profile.jpg){style="border-radius:50%" width="300"}
+![](images/Joseph.jpeg){style="border-radius:50%;border: 3px solid #028097" width="300"}
 
-::: {style="text-algin:center;align-items:center"}
-**Tan Zexeong**
+::: {style="text-algin:center;align-items:center;border: 5px solid;  padding: 50px 0;"}
+
+**Tan Zexeong (Joseph)**
 
 *Team Member*
 
-📧 :
+📧 : zexeong.tan\@gmail.com
 
-![](linkedinlogo.jpg){width="39"}
+[![](images/linkedinlogo.jpg){fig-align="left" width="25"}](https://www.linkedin.com/in/joseph-zexeong-tan/)
 :::
 :::

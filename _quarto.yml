@@ -4,7 +4,7 @@ project:
 website:
   title: "Water is life"
   navbar:
-        
+    background: primary
     right:
       - href: overview.qmd
         text: Overview
@@ -18,9 +18,11 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: 
+      - cosmo
+      - custom.css
     css: styles.css
-    toc: true
+    toc: false
 
 editor: visual
 
