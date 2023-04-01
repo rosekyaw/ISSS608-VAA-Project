@@ -4,17 +4,42 @@
 #
 #################################
 # 
-packages = c('shiny','shinythemes', 'sf','shinydashboard','dashboardthemes','stringr','readxl','tidyverse','forcats',  #shiny and utilities
-             'tidyquant','caTools','forecast','TSA','tseries','quantmod','timeSeries','xts','scales','car','ROCR', 'stats',  #stats analysis
-             'treemapify','shinyWidgets','plotly','sjPlot', 'DT','ggstatsplot', 'tools', 'tmap','sf','corrplot','cluster','factoextra','heatmaply','leaflet','shinyHeatmaply')   #visualization
 
 
-for (p in packages){
-  if(!require(p, character.only = T)){
-    install.packages(p)
-  }
-  library(p,character.only = T)
-}
+library(shinydashboard)
+library(dashboardthemes)
+library(stringr)
+library(readxl)
+library(tidyverse)
+library(forcats)
+library(tidyquant)
+library(caTools)
+library(forecast)
+library(TSA)
+library(tseries)
+library(quantmod)
+library(timeSeries)
+library(xts)
+library(scales)
+library(car)
+library(ROCR)
+library(stats)
+library(treemapify)
+library(shinyWidgets)
+library(plotly)
+library(sjPlot)
+library(DT)
+library(ggstatsplot)
+library(tools)
+library(tmap)
+library(sf)
+library(corrplot)
+library(cluster)
+library(factoextra)
+library(heatmaply)
+library(leaflet)
+library(shinyHeatmaply)
+
 
 #################################
 #

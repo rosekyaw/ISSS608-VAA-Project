@@ -29,10 +29,10 @@ $green:   #3fb618 !default;
 $teal:    #20c997 !default;
 $cyan:    #00ffff !default;
 $water:   #028097 !default;
-$water1:  #D3F1F7!default;
+$water1:  #EEF8FA !default;
 
 $primary:       $water !default;
-$secondary:     $water1 !default;
+$secondary:     $gray-800 !default;
 $success:       $green !default;
 $info:          $blue !default;
 $warning:       $yellow !default;
@@ -85,12 +85,13 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@3
 
 body {
   -webkit-font-smoothing: antialiased;
+  background-color: $water1;
 }
 
 // Indicators
 
 .badge {
-  &.bg-secondary {
+  &.bg-light {
     color: $dark;
   }
 }

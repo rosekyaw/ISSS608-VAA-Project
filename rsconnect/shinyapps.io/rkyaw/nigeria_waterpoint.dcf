@@ -1,0 +1,14 @@
+name: nigeria_waterpoint
+title: nigeria_waterpoint
+username:
+account: rkyaw
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8740679
+bundleId: 7036858
+url: https://rkyaw.shinyapps.io/nigeria_waterpoint/
+when: 1680374783.55166
+lastSyncTime: 1680374783.5517
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .RData|.RDataTmp|_quarto.yml|about.qmd|custom.css|image.jpg|overview.qmd|poster.qmd|shiny_app.qmd|styles.css|tab1/app.R|tab1/data/wp_nga.rds|user_guide.qmd|_site|images|Project-Proposal|tab2|tab3
