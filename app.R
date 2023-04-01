@@ -499,12 +499,16 @@ segmentation_tab<- tabItem(
       #submitButton("Update view", icon("refresh")),
     ),
     mainPanel(
-      plotOutput(outputId = "clusterMap", width = "100%", height = "500"),
-      plotOutput(outputId = "optimalK", width = "100%", height = "200"),
-      plotOutput(outputId = "heatMap", width = "100%", height = "500")
-      
-    ))
-  ))
+      tabsetPanel(
+        tabPanel("Cluster Map",
+                 plotOutput(outputId = "clusterMap", width = "100%", height = "550")
+        ),
+        tabPanel("Optimal K",
+                 plotlyOutput(outputId = "optimalK", width = "100%", height = "400")
+        ),
+        tabPanel("Heat Map",
+                 plotlyOutput(outputId = "heatMap", width = "100%", height = "600")
+        ))))))
 
 
 # Themes
@@ -812,50 +816,66 @@ server <- function(input, output, session) {
   output$clusterMap <- renderPlot({
     tm_shape(clusterMapInput()) +
       tm_fill(col = "cluster",
-              title = "Test") +
+              title = "Cluster") +
       tm_borders(alpha = 0.3) +
       tm_style("cobalt") +
-      tm_layout(main.title = "Hierarchical Clustering",
-                main.title.size = 1.1,
+      tm_layout(main.title = "Hierarchical Clustering for NGA Water Points",
+                main.title.size = 1.8,
                 main.title.position = "center",
-                legend.height = 0.3,
-                legend.width = 0.1, 
-                legend.title.size = 1,
+                legend.height = 1.5,
+                legend.width = 0.5, 
+                legend.title.size = 1.3,
                 legend.text.size = 1,
                 frame = TRUE,
                 asp = 0)
   })
   
+  
   # cluster
-  output$optimalK <- renderPlot({
+  output$optimalK <- renderPlotly({
     req(input$optKmethod, optKInput())
-    if (input$optKmethod == "Elbow Method") {
+    if (input$optKmethod == "Within Cluster Sum of Squares(Elbow)") {
       fviz_nbclust(optKInput(), kmeans, method = "wss", linecolor = "white") +
-        theme_dark() + labs(subtitle = "Elbow method")}
+        theme_dark() +
+        ggtitle("Within Cluster Sum of Squares (Elbow)") +
+        theme(plot.title = element_text(size = 16),
+              axis.title = element_text(size = 11),
+              plot.margin = unit(c(1, 1, 1, 0.5), "cm"))}
     else if (input$optKmethod == "Gap Statistics") {
       fviz_nbclust(optKInput(), hcut, nstart = 25, method = "gap_stat", nboot = 50,
-                   linecolor = "white") + theme_dark() + labs(subtitle = "Gap statistic method")}
+                   linecolor = "white") + theme_dark()  +
+        ggtitle("Gap statistic method") +
+        theme(plot.title = element_text(size = 16), 
+              axis.title = element_text(size = 11), 
+              plot.margin = unit(c(1, 1, 1, 0.5), "cm"))}
     else {
       fviz_nbclust(optKInput(), kmeans, method = "silhouette", linecolor = "white") + 
-        theme_dark() + labs(subtitle = "Silhouette method")}
+        theme_dark() + 
+        ggtitle("Silhouette method") +
+        theme(plot.title = element_text(size = 16),
+              axis.title = element_text(size = 11),
+              plot.margin = unit(c(1, 1, 1, 0.5), "cm"))}
   })
   
   # Heat Map
-  output$heatMap <- renderPlot({
-    heatmap(data.matrix(heatmapInput()),
-            Colv = NA,
-            dist_method = "euclidean",
-            hclust_method = "ward.D",
-            seriate = "OLO",
-            colors = Blues,
-            k_row = 3,
-            margins = c(5,5),
-            fontsize_row = 1,
-            fontsize_col = 8,
-            main="Cluster Heatmap of x",
-            xlab = "Attribute",
-            ylab = "Nigeria LGA",
-            dend_hoverinfo = TRUE)
+  output$heatMap <- renderPlotly({
+    heatmaply(data.matrix(heatmapInput()),
+              Colv = NA,
+              dist_method = "euclidean",
+              hclust_method = "ward.D",
+              seriate = "OLO",
+              colors = Blues,
+              k_row = input$clusterInput,
+              margins = c(5,5),
+              fontsize_row = 1,
+              fontsize_col = 8,
+              main = "Cluster Heatmap",
+              xlab = "Attribute",
+              ylab = "Nigeria LGA",
+              dend_hoverinfo = TRUE) %>%
+      layout(xaxis = list(title = "Attribute", tickangle = 10, tickfont = list(size = 10), titlefont = list(size = 14)),
+             yaxis = list(title = "Nigeria LGA", titlefont = list(size = 14)),
+             margin = list(l = 80, t = 80, b = 110, r = 50))
   })
   
 }
