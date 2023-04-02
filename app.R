@@ -334,9 +334,9 @@ overview_tab <- tabItem(
                                   "High capacity" = "pct_highcap")
           )),
         
-        # Only show this panel if the parameter is Urban or Rural?
+        # Only show this panel if the parameter is Community
         conditionalPanel(
-          condition = "input.parameter == 'Urban or Rural?'",
+          condition = "input.parameter == 'Community'",
           selectInput(inputId = "param6",
                       label = "Community :",
                       choices = c("Urban" = "pct_urban",
@@ -568,13 +568,13 @@ server <- function(input, output, session) {
           else if('Pressure Score' %in% input$parameter) col = input$param3
           else if('Crucial Score' %in% input$parameter) col = input$param4
           else if('Capacity' %in% input$parameter) col = input$param5
-          else if('Urban or Rural?' %in% input$parameter) col = input$param6),
+          else if('Community' %in% input$parameter) col = input$param6),
          (if('Water Source' %in% input$parameter) size = input$param1
           else if('Technology' %in% input$parameter) size = input$param2
           else if('Pressure Score' %in% input$parameter) size = input$param3
           else if('Crucial Score' %in% input$parameter) size = input$param4
           else if('Capacity' %in% input$parameter) size = input$param5
-          else if('Urban or Rural?' %in% input$parameter) size = input$param6),
+          else if('Community' %in% input$parameter) size = input$param6),
          n = 5,
          alpha = 0.6,
          scale = 0.5,
