@@ -273,7 +273,7 @@ overview_tab <- tabItem(
         # Water Point Status
         selectInput(inputId = "status",
                     label = "Water Point Status :",
-                    choices = c("Functional wateroints" = "pct_functional",
+                    choices = c("Functional waterpoints" = "pct_functional",
                                 "Non-functional waterpoints" = "pct_nonfunctional",
                                 "Unknown waterpoints" = "pct_unknown"),
                     selected = "Functional waterpoints"),
