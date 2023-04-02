@@ -2,6 +2,8 @@
 title: "About Us"
 ---
 
+We are a team of passionate individuals about data visualisation.
+
 ::: {layout="[4,4]"}
 ![](images/Prof.jpg){style="border-radius:50%;border: 3px solid #028097" width="300"}
 

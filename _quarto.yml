@@ -10,7 +10,7 @@ website:
         text: Overview
       - href: user_guide.qmd
         text: User Guide 
-      - href: shiny_app.qmd
+      - href: https://rkyaw.shinyapps.io/waterislife/
         text: Shiny App 
       - href: poster.qmd
         text: Poster
