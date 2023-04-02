@@ -146,27 +146,36 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="user-guide" class="level1">
 <h1>User Guide</h1>
-<p>This Waterpoint app allow users to have an overview on the distribution of water points by operational status and attributes, analysed the water points visually and segment into various clusters to facilitate decision making in resources management for the water points.</p>
-<p>There are 3 key features in this app, namely Overview, Visual Inferential Analytics and Geographical Segmentation.</p>
+<p>This Waterpoint app allows users to have an overview of the distribution of water points by operational status and attributes, analyse the water points visually and segment them into various clusters to facilitate decision-making in resources management for the water points.</p>
+<p>This app has 3 key sections : <strong>Overview</strong>, <strong>Visual Inferential Analytics</strong> and <strong>Geographical Segmentation</strong>.</p>
+<p><br></p>
 </section>
 <section id="overview" class="level1">
 <h1>Overview</h1>
 <p><em>Homepage &gt; <a href="https://rkyaw.shinyapps.io/nigeria_waterpoint/">App</a>&gt; Overview</em></p>
-<p>The key functions for this tab is to facilitate users to visualise the distribution of water points at LDA2 level. These water points are those functional, non-functional as well as unknown.</p>
-<p><img src="images/image-1655219087.png" class="img-fluid"></p>
-<p>Following are the key functions :</p>
+<p>The key functions of this section are to facilitate users to visualise the distribution of water points at LDA2 level. The percentage of the selected status measures their distribution within a given district.</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/image-1386807293.png" class="img-fluid figure-img" alt="This choropleth map shows the overview for the distribution of functional waterpoints." width="400"></p>
+<p></p><figcaption class="figure-caption">Overview for the distribution of functional waterpoints.</figcaption><p></p>
+</figure>
+</div>
+<p>There are 3 types of statuses available :</p>
+<ul>
+<li><p>Functional waterpoints.</p></li>
+<li><p>Non-functional waterpoints.</p></li>
+<li><p>Unknown waterpoints.</p>
+<p><br></p></li>
+</ul>
+<p>There are 6 key parameters available to supplement the overview of a selected status. When a parameter is selected, there will be more associated attributes available to choose. The attributes descriptions are listed below :</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/image-1084149552.png" class="img-fluid figure-img" alt="This choropleth map shows the distribution of functional waterpoints with hand water pump deployed." width="400"></p>
+<p></p><figcaption class="figure-caption">Distribution of functional waterpoints with hand water pump deployed.</figcaption><p></p>
+</figure>
+</div>
 <ol type="1">
-<li><p>Visualise the status of water points distribution. Their distribution is measured by the percentage of the selected status within a given district.</p>
-<p>There are 3 type of status available :</p>
-<ul>
-<li><p>Functional water points.</p></li>
-<li><p>Non-functional water points.</p></li>
-<li><p>Unknown water points.</p></li>
-</ul></li>
-<li><p>Visualise the attributes associated with the water points.</p>
-<p>There are</p>
-<ul>
-<li><p>Water source, refers to the 2 major type of water sources available for most of the water points in Nigeria. There are 2 options available :</p>
+<li><p><strong>Water source</strong>, refers to the 2 major types of water sources available for most of the water points in Nigeria. There are 2 options available :</p>
 <ul>
 <li><p><strong>Spring</strong></p></li>
 <li><p><strong>Well</strong></p></li>
@@ -174,69 +183,116 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Technology</strong>, refers to the deployed equipment to supply water resources to the surrounding communities. There are 2 options available :</p>
 <ul>
 <li><p><strong>Hand Pump</strong>, shows the percentage of water points equipped with manual equipment.</p></li>
-<li><p><strong>Mechanised Pump</strong>, shows the percentage of water points with equipment that operated with minimal human involvement.</p></li>
+<li><p><strong>Mechanical Pump</strong>, shows the percentage of water points with equipment that operated with minimal human involvement.</p></li>
 </ul></li>
-<li><p><strong>Pressure Score</strong>, measures the utilisation level of the water points. This is done by measures the ratio of the population within 1 km radius from the water points, and by the usage capacity limit thereof. There are 2 options available :</p>
+<li><p><strong>Pressure Score</strong>, measures the utilisation level of the water points. This is done by measuring the ratio of the population within 1 km radius of the water points and by the usage capacity limit thereof. There are 2 options available :</p>
 <ul>
-<li><p><strong>Low Pressure Score</strong>, are the water points that are not over supporting population within 1 km radius.</p></li>
-<li><p><strong>High Pressure Score</strong>, are the water points that have breached their usage capacity limit. Urgent attention and resources are required to upgrade or maintain the water points to sustain the community growth.</p></li>
+<li><p><strong>Acceptable Pressure Score</strong>, are the water points that are not over-supporting the population within 1 km radius.</p></li>
+<li><p><strong>High Pressure Score</strong>, are the water points that have breached their usage capacity limit. Urgent attention and resources are required to upgrade or maintain the water points to sustain the rural community’s growth.</p></li>
 </ul></li>
-<li><p><strong>Crucial Score</strong>, measures the crucial level of the water points for population within 1 km radius. There are 2 options available :</p>
+<li><p><strong>Crucial Score</strong>, measures the crucial level of the water points for the populations within 1 km radius. There are 2 options available :</p>
 <ul>
 <li><p><strong>Low Crucial Score</strong>, are the water points with score below 0.4, generally supporting less than half of the population within 1 km radius.</p></li>
-<li><p><strong>High Crucial Score</strong>, are the water points with score above 0.4, may indicates they are supporting more than half population, with some of them supporting almost entire population.</p></li>
+<li><p><strong>High Crucial Score</strong>, are the water points with score above 0.4, which may indicate they are supporting more than half of the population, with some of them supporting almost the entire population.</p></li>
 </ul></li>
-<li><p><strong>Capacity</strong>, refers to the limit of population a water points can support. Generally, these limits are categorised into 5 main category, namely 50, 250, 300, 500 and 1000. For this app, we group all the capacity categories below 1000 as 1 attribute to identify which area require more resources to maintain or upgrade.</p>
+<li><p><strong>Capacity</strong>, refers to the limit of the population water points can support. Generally, these limits are categorised into 5 main categories, namely 50, 250, 300, 500 and 1000. For this app, we group all the capacity categories below 1000 as 1 attribute to identify which area requires more resources to maintain or upgrade.</p>
 <ul>
-<li><p><strong>Low Capacity</strong>, include all the usage capacity limit below 1000.</p></li>
+<li><p><strong>Low Capacity</strong>, including all the usage capacity limits below 1000.</p></li>
 <li><p><strong>High Capacity</strong>, refers are the water points with usage capacity limit 1000.</p></li>
 </ul></li>
-<li><p><strong>Urban or Rural?,</strong> a community parameter that indicates the percentage of water points fall within ‘<strong>Urban</strong>’ or ‘<strong>Rural</strong>’ community.</p></li>
-</ul></li>
+<li><p><strong>Community,</strong> this parameter that indicates the percentage of water points falls within ‘<strong>Urban</strong>’ or ‘<strong>Rural</strong>’ community.</p></li>
 </ol>
 <p><br></p>
 </section>
 <section id="visual-inferential-analysis" class="level1">
 <h1>Visual Inferential Analysis</h1>
 <p><em>Homepage &gt;</em> <a href="https://rkyaw.shinyapps.io/nigeria_waterpoint/"><em>App</em></a> <em>&gt; Visual Inferential Analysis</em></p>
-<p>The key functions for this tab is to allow users to visually analyse variances (ANOVA) and correlation of various attributes across different states.</p>
-<p>Following are the key functions :</p>
-<p><img src="images/image-431995626.png" class="img-fluid"></p>
+<p>The key functions of this section are to allow users to visually analyse variances (ANOVA) and correlations of various attributes across different states.</p>
+<p>The following are the key functions :</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/image-431995626.png" class="img-fluid figure-img" alt="The chart illustrates the analyse variances of total waterpoints across all the states in Nigeria." width="400"></p>
+<p></p><figcaption class="figure-caption">Analyse variances of total waterpoints across all the states in Nigeria.</figcaption><p></p>
+</figure>
+</div>
 <ol type="1">
-<li><p><strong>ANOVA</strong></p>
-<p>This tab allows users to visually analyse the variances by states based on the selected attribute.</p>
+<li><p><strong>Visually analyse variances</strong></p>
+<p>This tab allows users to visually analyse the variances by state based on the selected attribute.</p>
 <p>There are 19 attributes available :</p>
 <ul>
-<li><p>3 options of water points options to select from “<strong>Total Waterpoints</strong>”, “<strong>Functional waterpoints</strong>” and “<strong>Non-functional Water Points</strong>”</p></li>
-<li><p>3 options of <strong>Technology</strong> parameter : “<strong>Handpumps</strong>”, “<strong>Mechanical Pumps</strong>” and “<strong>Tap Stands</strong>”.</p></li>
-<li><p>5 options of <strong>Capacity</strong> parameter : “<strong>Usage Capacity 50</strong>”, “<strong>Usage Capacity 250</strong>”, “<strong>Usage Capacity 300</strong>”, “<strong>Usage Capacity 1000</strong>” and “<strong>Usage Capacity below 1000</strong>”.</p></li>
-<li><p>2 options of <strong>Community</strong> parameter : “<strong>Urban</strong>” and “<strong>Rural</strong>” communities.</p></li>
-<li><p>2 options of <strong>Crucial Score</strong> parameter : “<strong>Low Crucial Score</strong>” and “<strong>High Crucial Score</strong>”.</p></li>
-<li><p>4 options of <strong>Pressure Score</strong> parameter : “<strong>Pressure Score below 0.9</strong>”, “<strong>above 0.9 but below 1.9</strong>”, “<strong>above 1.9, below 3.9</strong>” and “<strong>above 3.9</strong>”.</p></li>
+<li><p>3 options for water points options to select from “<strong>Total Waterpoints</strong>”, “<strong>Functional waterpoints</strong>” and “<strong>Non-functional Water Points</strong>”.</p></li>
+<li><p>3 options for <strong>Technology</strong> parameter : “<strong>Handpumps</strong>”, “<strong>Mechanical Pumps</strong>” and “<strong>Tap Stands</strong>”.</p></li>
+<li><p>5 options for <strong>Capacity</strong> parameter : “<strong>Usage Capacity 50</strong>”, “<strong>Usage Capacity 250</strong>”, “<strong>Usage Capacity 300</strong>”, “<strong>Usage Capacity 1000</strong>” and “<strong>Usage Capacity below 1000</strong>”.</p></li>
+<li><p>2 options for <strong>Community</strong> parameter : “<strong>Urban</strong>” and “<strong>Rural</strong>” communities.</p></li>
+<li><p>2 options for <strong>Crucial Score</strong> parameter : “<strong>Low Crucial Score</strong>” and “<strong>High Crucial Score</strong>”.</p></li>
+<li><p>4 options for <strong>Pressure Score</strong> parameter : “<strong>Pressure Score below 0.9</strong>”, “<strong>above 0.9 but below 1.9</strong>”, “<strong>above 1.9, below 3.9</strong>”, and “<strong>above 3.9</strong>”.</p></li>
 </ul></li>
-<li><p><strong>CORRELATION</strong></p>
-<p><img src="images/image-2120188057.png" class="img-fluid"></p>
-<p>This tab allows users to visually explore the correlation strength between two attributes by select the attribute for Variable 1 and Variable 2.</p></li>
 </ol>
+<p><br></p>
+<ol start="2" type="1">
+<li><strong>Correlation Analysis</strong></li>
+</ol>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/image-2120188057.png" class="img-fluid figure-img" alt="This chart shows the highly correlated variables with perfect straight line." width="400"></p>
+<p></p><figcaption class="figure-caption">Avoid highly correlated variables that have a perfect straight line.</figcaption><p></p>
+</figure>
+</div>
+<p>This tab, <strong>CORRELATION</strong>, allows users to visually explore the correlation strength between two attributes by selecting the attributes for Variable 1 and 2.</p>
 <p><br></p>
 </section>
 <section id="geographical-segmentation" class="level1">
 <h1>Geographical Segmentation</h1>
 <p><em>Homepage &gt;</em> <a href="https://rkyaw.shinyapps.io/nigeria_waterpoint/"><em>App</em></a> <em>&gt; Geographical Segmentation</em></p>
-<p>The key functions for this tab is to allow users to perform Hierarchical Clustering geospatial analysis based on 3 or more attributes.</p>
-<p>Following are the key functions :</p>
+<p>The key functions of this section is to allow users to perform Hierarchical Clustering geospatial analysis based on selected attributes.</p>
+<p>The following are the key functions :</p>
 <ol type="1">
-<li><strong>Clustering Map</strong></li>
+<li><strong>Geospatial Clustering Analysis</strong></li>
 </ol>
-<p><img src="images/image-915361031.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/image-682693600.png" class="img-fluid figure-img" alt="This map illustrates the Nigeria districts are segment into 3 clusters based on the selected 7 attributes and Hierarchical Clustering algorithm." width="400"></p>
+<p></p><figcaption class="figure-caption">The Nigeria districts are segment into 3 clusters based on the selected 7 attributes and Hierarchical Clustering algorithm.</figcaption><p></p>
+</figure>
+</div>
+<p>This tab, <strong>Cluster Map</strong>, displays the geographical segmentation based on the <strong>Hierarchical Clustering algorithm</strong>. The output will be based on minimum 3 selected attributes and the optimal default number of clusters, i.e.&nbsp;3.</p>
+<p>Users can glide the “Number of Cluster” to adjust the clustering output.</p>
+<ul>
+<li><p>For app launching version :</p>
+<ul>
+<li><p>The clustering analysis currently only supports 10 attributes. We will gradually release more attributes in subsequent app updates. Do reach out to us if you have any attributes in mind you would like to include in your geospatial analysis.</p></li>
+<li><p>The number of clusters is limited to 10.</p></li>
+</ul></li>
+</ul>
+<p><br></p>
 <ol start="2" type="1">
 <li><strong>Determine Optimal K value</strong></li>
 </ol>
-<p><img src="images/image-1575984388.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/image-594899087.png" class="img-fluid figure-img" alt="This image illustrate how this app is use Elbow method to determine the optimal K number of clustering for geospatial segmentation." width="400"></p>
+<p></p><figcaption class="figure-caption">Elbow method</figcaption><p></p>
+</figure>
+</div>
+<p>This tab, <strong>Optimal K</strong>, displays the chart to facilitate users in identifying the optimal default number of clusters, K, for the clustering analysis. There are 3 methods available, namely <strong>Elbow</strong>, <strong>Gap Statistics</strong> and <strong>Silhouette Score</strong>, to compare the K-values.</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/image-1827519734.png" class="img-fluid figure-img" alt="This image illustrate how this app is use Silhouette Score method to determine the optimal K number of clustering for geospatial segmentation." width="400"></p>
+<p></p><figcaption class="figure-caption">Silhouette Score method</figcaption><p></p>
+</figure>
+</div>
+<p>Note : Subject to devices, it may take up to 40 seconds to render the output when changing the method option.</p>
+<p><br></p>
 <ol start="3" type="1">
 <li><strong>Visual Analytics with Heatmap</strong></li>
 </ol>
-<p><img src="images/image-727628928.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/image-874681471.png" class="img-fluid figure-img" alt="This image illustrate the heatmap plotted based on 7 attributes of water points in Nigeria." width="400"></p>
+<p></p><figcaption class="figure-caption">Heatmap for 7 Attributes</figcaption><p></p>
+</figure>
+</div>
+<p>This tab, <strong>Heatmap</strong>, allows users to visually analyse the attributes’ performances across the identified segments, as shown by the dendrogram on the right.</p>
 
 
 </section>

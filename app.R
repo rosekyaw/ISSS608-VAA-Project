@@ -212,6 +212,10 @@ cluster_vars <- wp_ngaTrim %>%
 row.names(cluster_vars) <- cluster_vars$shapeName
 cluster_vars <- cluster_vars %>% select(-shapeName)
 
+attributesOption <- c("Functional waterpoints" = "pct_functional", "Non-functional waterpoints" = "pct_nonFunctional", "Hand pumps" = "pct_handPump",
+  "Mechanical pumps" = "pct_mechPump", "Usage capacity under 1000" = "pct_ucN1000", "Rural" = "pct_urban0",
+  "Low Crucial score" = "pct_cs04", "High Crucial score" = "pct_cs10", "Acceptable Pressure score" = "pct_ps09",
+  "High Pressure score" = "pct_ps19")
 
 #################################
 #
@@ -269,10 +273,10 @@ overview_tab <- tabItem(
         # Water Point Status
         selectInput(inputId = "status",
                     label = "Water Point Status :",
-                    choices = c("Functional Water Points" = "pct_functional",
-                                "Non-Functional Water Points" = "pct_nonfunctional",
-                                "Unknown Water Points" = "pct_unknown"),
-                    selected = "Functional Water Points"),
+                    choices = c("Functional wateroints" = "pct_functional",
+                                "Non-functional waterpoints" = "pct_nonfunctional",
+                                "Unknown waterpoints" = "pct_unknown"),
+                    selected = "Functional waterpoints"),
         
         # Another Parameter
         selectInput(inputId = "parameter",
@@ -283,7 +287,7 @@ overview_tab <- tabItem(
                                 "Pressure Score",
                                 "Crucial Score",
                                 "Capacity",
-                                "Urban or Rural?"),
+                                "Community"),
                     selected = "Nil"),
         
         # Only show this panel if the parameter is Water Source
@@ -299,15 +303,15 @@ overview_tab <- tabItem(
           condition = "input.parameter == 'Technology'",
           selectInput(inputId = "param2",
                       label = "Technology:",
-                      choices = c("Hand Pump" = "pct_handpump",
-                                  "Mechanized Pump" = "pct_mechpump")
+                      choices = c("Hand pump" = "pct_handpump",
+                                  "Mechanical pump" = "pct_mechpump")
           )),
         
         # Only show this panel if the parameter is Pressure Score
         conditionalPanel(
           condition = "input.parameter == 'Pressure Score'",
           selectInput(inputId = "param3",
-                      label = "Pressure Score :",
+                      label = "Pressure score :",
                       choices = c("Acceptable Pressure Score" = "pct_withinpressure",
                                   "High Pressure Score" = "pct_highpressure")
           )),
@@ -317,8 +321,8 @@ overview_tab <- tabItem(
           condition = "input.parameter == 'Crucial Score'",
           selectInput(inputId = "param4",
                       label = "Crucial Score :",
-                      choices = c("Low Crucial Score" = "pct_lowcrucial",
-                                  "High Crucial Score" = "pct_highcrucial")
+                      choices = c("Low Crucial score" = "pct_lowcrucial",
+                                  "High Crucial score" = "pct_highcrucial")
           )),
         
         # Only show this panel if the parameter is Capacity
@@ -326,15 +330,15 @@ overview_tab <- tabItem(
           condition = "input.parameter == 'Capacity'",
           selectInput(inputId = "param5",
                       label = "Capacity :",
-                      choices = c("Low Capacity" = "pct_lowcap",
-                                  "High Capacity" = "pct_highcap")
+                      choices = c("Low capacity" = "pct_lowcap",
+                                  "High capacity" = "pct_highcap")
           )),
         
         # Only show this panel if the parameter is Urban or Rural?
         conditionalPanel(
           condition = "input.parameter == 'Urban or Rural?'",
           selectInput(inputId = "param6",
-                      label = "Urban or Rural? :",
+                      label = "Community :",
                       choices = c("Urban" = "pct_urban",
                                   "Rural" = "pct_rural")
           )),
@@ -355,7 +359,7 @@ inferential_tab <- tabItem(
   fluidPage(
   # Helptext
   fluidRow(
-    column(12,helpText("Select the different sub tabs to find out more. Visualization may take some time to render.", style = "font-size:110%;font-style:italic;" ), )),
+    column(12,helpText("Select the different sub tabs to find out more. Visualisation may take some time to render.", style = "font-size:110%;font-style:italic;" ), )),
   fluidRow(
     column(12,navbarPage(" ",inverse = TRUE,
                          #ANOVA v2
@@ -363,10 +367,10 @@ inferential_tab <- tabItem(
                                   fluidRow(
                                     column(5,
                                            selectInput("return_ANOVA2", "ANOVA Analysis for Number of:",
-                                                       choices = list("Total Waterpoints" = "total_wp",
+                                                       choices = list("Total waterpoints" = "total_wp",
                                                                       "Functional waterpoints" = "wp_functional",
                                                                       "Non-functional waterpoints" = "wp_nonFunctional",
-                                                                      "Handpumps" = "total_handPump",
+                                                                      "Hand pumps" = "total_handPump",
                                                                       "Mechanical pumps" = "total_mechPump", 
                                                                       "Tap stands" = "total_tapStand", 
                                                                       "Waterpoints with usage capacity 50" = "total_uc50",
@@ -375,7 +379,7 @@ inferential_tab <- tabItem(
                                                                       "Waterpoints with usage capacity 1000" = "total_uc1000",
                                                                       "Waterpoints with usage capacity under 1000" = "total_ucn1000",
                                                                       "Urban areas" = "total_urban1",
-                                                                      "Non-urban areas" ="total_urban0",
+                                                                      "Rural areas" ="total_urban0",
                                                                       "Crucial score 04" = "total_cs04",
                                                                       "Crucial score 10" = "total_cs10",
                                                                       "Pressure score 09" = "total_ps09",
@@ -468,46 +472,41 @@ inferential_tab <- tabItem(
 segmentation_tab<- tabItem(
   tabName = "Segmentation",
   fluidPage(
+    titlePanel("Geographical Segmentation"),
+    fluidRow(
+      column(8, helpText("The heatmap visualisation or any changes may need up to 40 seconds to render.", 
+                         style = "font-size:110%;font-style:italic;"))),
   sidebarLayout(
     sidebarPanel(
       checkboxGroupInput(inputId = "attribute",
                          label = "Attribute :",
-                         choices = c("Functional Water Points" = "pct_functional",
-                                     "Non-Functional Water Points" = "pct_nonFunctional",
-                                     "Hand Water Pump Deployment" = "pct_handPump",
-                                     "Mechanical Water Pump Deployment" = "pct_mechPump",
-                                     "Usage Capacity Limit below 1000" = "pct_ucN1000",
-                                     "Sited within Non-urban Communities" = "pct_urban0",
-                                     "Supporting < 40% population within 1 km" = "pct_cs04",
-                                     "Moderate to Over-Supporting within 1 km" = "pct_cs10",
-                                     "Within Usage Capacity Limit" = "pct_ps09",
-                                     "Over Usage Capacity Limit" = "pct_ps19"),
-                         selected = c("pct_functional", "pct_nonFunctional", "pct_handPump")),
+                         choices = attributesOption,
+                         selected = attributesOption[1:7]),
       
       radioButtons(inputId = "optKmethod",
                    label = "Method to determine Optimal k value :",
-                   choices = c("Elbow Method", 
+                   choices = c("Within Cluster Sum of Squares(Elbow)", 
                                "Gap Statistics", 
                                "Silhouette Score"),
-                   selected = "Elbow Method"),
+                   selected = "Within Cluster Sum of Squares(Elbow)"),
       
       sliderInput(inputId = "clusterInput",
                   label = "Number of cluster",
                   min = 2,
-                  max = 12,
+                  max = 10,
                   value = 3),
       #submitButton("Update view", icon("refresh")),
     ),
     mainPanel(
       tabsetPanel(
         tabPanel("Cluster Map",
-                 plotOutput(outputId = "clusterMap", width = "100%", height = "550")
+                 plotOutput(outputId = "clusterMap", width = "100%", height = "520")
         ),
         tabPanel("Optimal K",
                  plotlyOutput(outputId = "optimalK", width = "100%", height = "400")
         ),
         tabPanel("Heat Map",
-                 plotlyOutput(outputId = "heatMap", width = "100%", height = "600")
+                 plotlyOutput(outputId = "heatMap", width = "100%", height = "550")
         ))))))
 
 
@@ -839,21 +838,21 @@ server <- function(input, output, session) {
         theme_dark() +
         ggtitle("Within Cluster Sum of Squares (Elbow)") +
         theme(plot.title = element_text(size = 16),
-              axis.title = element_text(size = 11),
+              axis.title = element_text(size = 13),
               plot.margin = unit(c(1, 1, 1, 0.5), "cm"))}
     else if (input$optKmethod == "Gap Statistics") {
       fviz_nbclust(optKInput(), hcut, nstart = 25, method = "gap_stat", nboot = 50,
                    linecolor = "white") + theme_dark()  +
         ggtitle("Gap statistic method") +
         theme(plot.title = element_text(size = 16), 
-              axis.title = element_text(size = 11), 
+              axis.title = element_text(size = 13), 
               plot.margin = unit(c(1, 1, 1, 0.5), "cm"))}
     else {
       fviz_nbclust(optKInput(), kmeans, method = "silhouette", linecolor = "white") + 
         theme_dark() + 
         ggtitle("Silhouette method") +
         theme(plot.title = element_text(size = 16),
-              axis.title = element_text(size = 11),
+              axis.title = element_text(size = 13),
               plot.margin = unit(c(1, 1, 1, 0.5), "cm"))}
   })
   
@@ -870,10 +869,10 @@ server <- function(input, output, session) {
               fontsize_row = 1,
               fontsize_col = 8,
               main = "Cluster Heatmap",
-              xlab = "Attribute",
+              xlab = "",
               ylab = "Nigeria LGA",
               dend_hoverinfo = TRUE) %>%
-      layout(xaxis = list(title = "Attribute", tickangle = 10, tickfont = list(size = 10), titlefont = list(size = 14)),
+      layout(xaxis = list(tickangle = 20, tickfont = list(size = 10), titlefont = list(size = 14)),
              yaxis = list(title = "Nigeria LGA", titlefont = list(size = 14)),
              margin = list(l = 80, t = 80, b = 110, r = 50))
   })
